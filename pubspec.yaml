@@ -1,0 +1,114 @@
+name: learntoread
+description: A new Flutter project.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.4 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  flutter_svg: ^1.1.4
+  wakelock: ^0.6.2
+  fluttertoast: ^8.1.1
+  flutter_rating_bar: ^4.0.1
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter:
+
+  uses-material-design: true
+
+  fonts:
+    - family: Kid Games
+      fonts:
+        - asset: fonts/KidGames.ttf
+
+  assets:
+    - assets/backgrounds.webp
+    - assets/icon1.png
+    - assets/icon2.jpg
+    - assets/icon3.jpg
+    - assets/icon4.png
+    - assets/icon5.jpg
+    - assets/icon6.png
+    - assets/A.png
+    - assets/1.png
+    - assets/frame-kuis.svg
+    - assets/button-menu.svg
+    - assets/button-ulangi.svg
+    - assets/accept.png
+    - assets/timer.png
+    - assets/log-out.png
+    - assets/back.png
+    - assets/next.png
+    - assets/previous.png
+    - assets/pengenalan-warna/black.png
+    - assets/pengenalan-warna/blue.png
+    - assets/pengenalan-warna/chocolate.png
+    - assets/pengenalan-warna/cream.png
+    - assets/pengenalan-warna/green.png
+    - assets/pengenalan-warna/grey.png
+    - assets/pengenalan-warna/orange.png
+    - assets/pengenalan-warna/purple.png
+    - assets/pengenalan-warna/red.png
+    - assets/pengenalan-warna/white.png
+    - assets/pengenalan-warna/yellow.png
+    - assets/pengenalan-hewan/cat.png
+    - assets/pengenalan-hewan/chicken.png
+    - assets/pengenalan-hewan/cow.png
+    - assets/pengenalan-hewan/crab.png
+    - assets/pengenalan-hewan/dog.png
+    - assets/pengenalan-hewan/dolphin.png
+    - assets/pengenalan-hewan/elephant.png
+    - assets/pengenalan-hewan/horse.png
+    - assets/pengenalan-hewan/lion.png
+    - assets/pengenalan-hewan/pig.png
+    - assets/pengenalan-hijaiyyah/alif.png
+    - assets/pengenalan-hijaiyyah/ba.png
+    - assets/pengenalan-hijaiyyah/ta.png
+    - assets/pengenalan-hijaiyyah/tsa.png
+    - assets/pengenalan-hijaiyyah/ja.png
+    - assets/pengenalan-hijaiyyah/ha.png
+    - assets/pengenalan-hijaiyyah/kha.png
+    - assets/pengenalan-hijaiyyah/da.png
+    - assets/pengenalan-hijaiyyah/dza.png
+    - assets/pengenalan-hijaiyyah/ra.png
+    - assets/pengenalan-hijaiyyah/za.png
+    - assets/pengenalan-hijaiyyah/sa.png
+    - assets/pengenalan-hijaiyyah/sya.png
+    - assets/pengenalan-hijaiyyah/sho.png
+    - assets/pengenalan-hijaiyyah/dho.png
+    - assets/pengenalan-hijaiyyah/tho.png
+    - assets/pengenalan-hijaiyyah/zho.png
+    - assets/pengenalan-hijaiyyah/ain.png
+    - assets/pengenalan-hijaiyyah/ghain.png
+    - assets/pengenalan-hijaiyyah/fa.png
+    - assets/pengenalan-hijaiyyah/qho.png
+    - assets/pengenalan-hijaiyyah/ka.png
+    - assets/pengenalan-hijaiyyah/la.png
+    - assets/pengenalan-hijaiyyah/mim.png
+    - assets/pengenalan-hijaiyyah/nun.png
+    - assets/pengenalan-hijaiyyah/wa.png
+    - assets/pengenalan-hijaiyyah/him.png
+    - assets/pengenalan-hijaiyyah/lam.png
+    - assets/pengenalan-hijaiyyah/hamzah.png
+    - assets/pengenalan-hijaiyyah/ya.png
+    
+    
+
+
+
+
+
+
+    
+  
