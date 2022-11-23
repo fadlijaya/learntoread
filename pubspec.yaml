@@ -1,6 +1,6 @@
 name: learntoread
 description: A new Flutter project.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: 'none'
 
 version: 1.0.0+1
 
@@ -15,6 +15,7 @@ dependencies:
   wakelock: ^0.6.2
   fluttertoast: ^8.1.1
   flutter_rating_bar: ^4.0.1
+  assets_audio_player: ^3.0.5
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
@@ -22,6 +23,22 @@ dev_dependencies:
     sdk: flutter
 
   flutter_lints: ^2.0.0
+  flutter_launcher_icons: ^0.10.0
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/launcher/launcher_icons.png"
+  min_sdk_android: 21
+  web:
+    generate: true
+    image_path: "path/to/image.png"
+    background_color: "#hexcode"
+    theme_color: "#hexcode"
+  windows:
+    generate: true
+    image_path: "path/to/image.png" 
+    icon_size: 48
 
 flutter:
 
@@ -33,6 +50,7 @@ flutter:
         - asset: fonts/KidGames.ttf
 
   assets:
+    - audio/backsound.mp3
     - assets/backgrounds.webp
     - assets/icon1.png
     - assets/icon2.jpg
@@ -51,6 +69,8 @@ flutter:
     - assets/back.png
     - assets/next.png
     - assets/previous.png
+    - assets/enable.png
+    - assets/disable.png
     - assets/pengenalan-warna/black.png
     - assets/pengenalan-warna/blue.png
     - assets/pengenalan-warna/chocolate.png

@@ -23,7 +23,6 @@ class _KuisPageState extends State<KuisPage> {
   PageController pageController = PageController();
   Duration duration = const Duration(milliseconds: 500);
   Curve curve = Curves.ease;
-  List<Text> check = [];
   late Timer timer;
   int maxSeconds = 120;
   int skor = 0;
@@ -40,12 +39,8 @@ class _KuisPageState extends State<KuisPage> {
         });
         stopTimer();
         kuisTebakGambar.reset();
-        check = [];
       } else {
-        if (userPilihJawaban == jawabanBenar1 ||
-            jawabanBenar2 ||
-            jawabanBenar3) {
-          check.add(const Text("Benar"));
+        if (userPilihJawaban == jawabanBenar1 || jawabanBenar2 || jawabanBenar3) {
           Fluttertoast.showToast(
               msg: 'Benar',
               fontSize: 24.0,
@@ -54,10 +49,9 @@ class _KuisPageState extends State<KuisPage> {
               backgroundColor: Colors.green);
           setState(() {
             skor = skor + 10;
-            rating = rating + 1;
+            rating = rating + 0.5;
           });
         } else {
-          check.add(const Text("Salah"));
           Fluttertoast.showToast(
               msg: 'Salah',
               fontSize: 24.0,
@@ -70,13 +64,13 @@ class _KuisPageState extends State<KuisPage> {
             });
           } else {
             setState(() {
-              skor = skor - 2;
-              rating = rating - 0.2;
+              skor = skor - 5;
+              rating = rating - 0.25;
             });
           }
         }
 
-        kuisTebakGambar.nextQuestion();
+        Future.delayed(Duration(seconds: 1), () => kuisTebakGambar.nextQuestion());
       }
     });
   }
@@ -220,7 +214,7 @@ class _KuisPageState extends State<KuisPage> {
             stopTimer();
             Navigator.pushNamed(context, '/menu');
           },
-          child: Icon(Icons.arrow_back)),
+          child: Image.asset("assets/back.png", width: 40,)),
     );
   }
 
@@ -303,12 +297,9 @@ class _KuisPageState extends State<KuisPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        checkingAnswer(kuisTebakGambar.getQuestion1(),
-                            kuisTebakGambar.getAnswer1()),
-                        checkingAnswer(kuisTebakGambar.getQuestion2(),
-                            kuisTebakGambar.getAnswer2()),
-                        checkingAnswer(kuisTebakGambar.getQuestion3(),
-                            kuisTebakGambar.getAnswer3()),
+                        checkingAnswer(kuisTebakGambar.getQuestion1(), kuisTebakGambar.getAnswer1()),
+                        checkingAnswer(kuisTebakGambar.getQuestion2(), kuisTebakGambar.getAnswer2()),
+                        checkingAnswer(kuisTebakGambar.getQuestion3(), kuisTebakGambar.getAnswer3()),
                       ],
                     ),
                   ],

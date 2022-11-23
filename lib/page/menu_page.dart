@@ -1,3 +1,4 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:learntoread/page/kuis_page.dart';
@@ -18,6 +19,9 @@ class MenuPage extends StatefulWidget {
 }
 
 class _MenuPageState extends State<MenuPage> {
+  AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
+  bool _isPlaying = true;
+
   Future setLandscape() async {
     // hide overlays statusbar
     // ignore: deprecated_member_use
@@ -37,6 +41,12 @@ class _MenuPageState extends State<MenuPage> {
   }
 
   @override
+  void dispose() {
+    assetsAudioPlayer.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
@@ -44,7 +54,13 @@ class _MenuPageState extends State<MenuPage> {
         width: size.width,
         height: size.height,
         child: Stack(
-          children: [buildBackground(size), buildTitlePage(), buildIconExit(), buildItem()],
+          children: [
+            buildBackground(size),
+            buildTitlePage(),
+            buildAudio(),
+            buildIconExit(),
+            buildItem()
+          ],
         ),
       ),
     );
@@ -69,12 +85,36 @@ class _MenuPageState extends State<MenuPage> {
         ));
   }
 
+  Widget buildAudio() {
+    return Positioned(
+        top: 24,
+        right: 90,
+        child: AudioWidget.assets(
+            play: _isPlaying,
+            path: "audio/backsound.mp3",
+            child: GestureDetector(
+              onTap: () {
+                setState(() {
+                  _isPlaying = !_isPlaying;
+                });
+              },
+              child: Image.asset(
+                _isPlaying ? "assets/enable.png" : "assets/disable.png",
+                width: 36,
+              ),
+            )));
+  }
+
   Widget buildIconExit() {
     return Positioned(
         top: 24,
         right: 24,
         child: GestureDetector(
-            onTap: () => SystemNavigator.pop(), child: Image.asset("assets/log-out.png", width: 36,)));
+            onTap: () => SystemNavigator.pop(),
+            child: Image.asset(
+              "assets/log-out.png",
+              width: 36,
+            )));
   }
 
   Widget buildItem() {
@@ -89,7 +129,13 @@ class _MenuPageState extends State<MenuPage> {
           crossAxisSpacing: 16,
           children: [
             GestureDetector(
-              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => PHurufPage())),
+              onTap: () {
+                setState(() {
+                  _isPlaying = false;
+                });
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => PHurufPage()));
+              },
               child: Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
@@ -114,7 +160,13 @@ class _MenuPageState extends State<MenuPage> {
               ),
             ),
             GestureDetector(
-              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => PAngkaPage())),
+              onTap: () {
+                setState(() {
+                  _isPlaying = false;
+                });
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => PAngkaPage()));
+              },
               child: Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
@@ -139,7 +191,13 @@ class _MenuPageState extends State<MenuPage> {
               ),
             ),
             GestureDetector(
-              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => PWarnaPage())),
+              onTap: () {
+                setState(() {
+                 _isPlaying = false;
+                });
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => PWarnaPage()));
+              },
               child: Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
@@ -164,7 +222,13 @@ class _MenuPageState extends State<MenuPage> {
               ),
             ),
             GestureDetector(
-              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => PHewanPage())),
+              onTap: () {
+                setState(() {
+                  _isPlaying = false;
+                });
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => PHewanPage()));
+              },
               child: Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
@@ -189,7 +253,13 @@ class _MenuPageState extends State<MenuPage> {
               ),
             ),
             GestureDetector(
-              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => PHijaiyahPage())),
+              onTap: () {
+                setState(() {
+                  _isPlaying = false;
+                });
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => PHijaiyahPage()));
+              },
               child: Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
@@ -214,7 +284,13 @@ class _MenuPageState extends State<MenuPage> {
               ),
             ),
             GestureDetector(
-              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => KuisPage())),
+              onTap: () {
+                setState(() {
+                  _isPlaying = false;
+                });
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => KuisPage()));
+              },
               child: Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
