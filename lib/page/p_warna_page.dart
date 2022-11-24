@@ -98,6 +98,7 @@ class _PWarnaPageState extends State<PWarnaPage> {
       backgroundsMenu,
       width: size.width,
       height: size.height,
+      opacity: AlwaysStoppedAnimation(0.2),
     );
   }
 
@@ -120,21 +121,21 @@ class _PWarnaPageState extends State<PWarnaPage> {
             child: Container(
                 padding: const EdgeInsets.fromLTRB(8, 40, 8, 8),
                 decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.7),
+                    color: Colors.white,
                     borderRadius: BorderRadius.circular(8)),
                 child: Text(
                   titleItem3.toUpperCase(),
                   style: TextStyle(
                       fontSize: 30,
                       fontFamily: 'Kid Games',
-                      color: Colors.orange),
+                      color: Colors.green),
                 ))));
   }
 
   Widget buildItem(String nama, String image) {
     return Positioned.fill(
       left: 0,
-      top: 120,
+      top: 100,
       bottom: 0,
       child: Column(
         children: [
@@ -144,23 +145,30 @@ class _PWarnaPageState extends State<PWarnaPage> {
               GestureDetector(
                   onTap: () => pageController.previousPage(
                       duration: duration, curve: curve),
-                  child: Image.asset(
-                    "assets/previous.png",
-                    width: 40,
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8)
+                    ),
+                    color: Colors.green,
+                    child: Container(
+                      margin: const EdgeInsets.all(8),
+                      child: Image.asset(
+                        "assets/previous.png",
+                        width: 40,
+                      ),
+                    ),
                   )),
               Container(
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(color: Colors.white.withOpacity(0.9)),
+                decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(16), ),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    ClipRRect(child: Image.asset(image)),
+                    Image.asset(image, width: 240,),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 24),
                       child: Text(
                         nama,
-                        style:
-                            TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                        style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
                         textAlign: TextAlign.center,
                       ),
                     )
@@ -170,9 +178,18 @@ class _PWarnaPageState extends State<PWarnaPage> {
               GestureDetector(
                   onTap: () =>
                       pageController.nextPage(duration: duration, curve: curve),
-                  child: Image.asset(
-                    "assets/next.png",
-                    width: 40,
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8)
+                    ),
+                    color: Colors.green,
+                    child: Container(
+                      margin: const EdgeInsets.all(8),
+                      child: Image.asset(
+                        "assets/next.png",
+                        width: 40,
+                      ),
+                    ),
                   )),
             ],
           )

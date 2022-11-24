@@ -97,6 +97,7 @@ class _PHewanPageState extends State<PHewanPage> {
       backgroundsMenu,
       width: size.width,
       height: size.height,
+      opacity: AlwaysStoppedAnimation(0.2),
     );
   }
 
@@ -119,14 +120,14 @@ class _PHewanPageState extends State<PHewanPage> {
             child: Container(
                 padding: const EdgeInsets.fromLTRB(8, 40, 8, 8),
                 decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.7),
+                    color: Colors.white,
                     borderRadius: BorderRadius.circular(8)),
                 child: Text(
                   titleItem4.toUpperCase(),
                   style: TextStyle(
                       fontSize: 30,
                       fontFamily: 'Kid Games',
-                      color: Colors.orange),
+                      color: Colors.blue),
                 ))));
   }
 
@@ -143,18 +144,27 @@ class _PHewanPageState extends State<PHewanPage> {
               GestureDetector(
                   onTap: () => pageController.previousPage(
                       duration: duration, curve: curve),
-                  child: Image.asset(
-                    "assets/previous.png",
-                    width: 40,
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8)
+                    ),
+                    color: Colors.green,
+                    child: Container(
+                      margin: const EdgeInsets.all(8),
+                      child: Image.asset(
+                        "assets/previous.png",
+                        width: 40,
+                      ),
+                    ),
                   )),
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
-                    color: Colors.white.withOpacity(0.9)),
+                    color: Colors.white),
                 child: Row(
                   children: [
-                    ClipRRect(child: Image.asset(image)),
+                    Image.asset(image, width: 200,),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 24),
                       child: Text(
@@ -170,9 +180,18 @@ class _PHewanPageState extends State<PHewanPage> {
               GestureDetector(
                   onTap: () =>
                       pageController.nextPage(duration: duration, curve: curve),
-                  child: Image.asset(
-                    "assets/next.png",
-                    width: 40,
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8)
+                    ),
+                    color: Colors.green,
+                    child: Container(
+                      margin: const EdgeInsets.all(8),
+                      child: Image.asset(
+                        "assets/next.png",
+                        width: 40,
+                      ),
+                    ),
                   )),
             ],
           )

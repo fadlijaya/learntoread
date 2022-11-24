@@ -136,6 +136,7 @@ class _PHijaiyahPageState extends State<PHijaiyahPage> {
       backgroundsMenu,
       width: size.width,
       height: size.height,
+      opacity: AlwaysStoppedAnimation(0.2),
     );
   }
 
@@ -158,21 +159,21 @@ class _PHijaiyahPageState extends State<PHijaiyahPage> {
             child: Container(
                 padding: const EdgeInsets.fromLTRB(8, 40, 8, 8),
                 decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.7),
+                    color: Colors.white,
                     borderRadius: BorderRadius.circular(8)),
                 child: Text(
                   titleItem5.toUpperCase(),
                   style: TextStyle(
                       fontSize: 30,
                       fontFamily: 'Kid Games',
-                      color: Colors.orange),
+                      color: Colors.pink),
                 ))));
   }
 
   Widget buildItem(String nama, String image) {
     return Positioned.fill(
       left: 0,
-      top: 120,
+      top: 100,
       bottom: 0,
       child: Column(
         children: [
@@ -182,22 +183,29 @@ class _PHijaiyahPageState extends State<PHijaiyahPage> {
               GestureDetector(
                   onTap: () => pageController.previousPage(
                       duration: duration, curve: curve),
-                  child: Image.asset(
-                    "assets/previous.png",
-                    width: 40,
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8)
+                    ),
+                    color: Colors.green,
+                    child: Container(
+                      margin: const EdgeInsets.all(8),
+                      child: Image.asset(
+                        "assets/previous.png",
+                        width: 40,
+                      ),
+                    ),
                   )),
               Container(
-                width: 360,
-                height: 180,
-                padding: const EdgeInsets.all(16),
+                width: 400,
+                height: 200,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
-                    color: Colors.white.withOpacity(0.9),
-                    border: Border.all(color: Colors.green, width: 5)),
+                    color: Colors.white,),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    ClipRRect(child: Image.asset(image)),
+                    Image.asset(image),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 24),
                       child: Text(
@@ -213,7 +221,15 @@ class _PHijaiyahPageState extends State<PHijaiyahPage> {
               GestureDetector(
                   onTap: () =>
                       pageController.nextPage(duration: duration, curve: curve),
-                  child: Image.asset("assets/next.png", width: 40,)),
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8)
+                    ),
+                    color: Colors.green,
+                    child: Container(
+                      margin: const EdgeInsets.all(8),
+                      child: Image.asset("assets/next.png", width: 40,)),
+                  )),
             ],
           )
         ],

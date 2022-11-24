@@ -50,9 +50,10 @@ class _MenuPageState extends State<MenuPage> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: SizedBox(
+      body: Container(
         width: size.width,
         height: size.height,
+        padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Stack(
           children: [
             buildBackground(size),
@@ -71,12 +72,13 @@ class _MenuPageState extends State<MenuPage> {
       backgroundsMenu,
       width: size.width,
       height: size.height,
+      opacity: AlwaysStoppedAnimation(0.5),
     );
   }
 
   Widget buildTitlePage() {
     return Positioned.fill(
-        left: 24,
+        left: 0,
         top: 24,
         bottom: 0,
         child: Text(
@@ -139,7 +141,7 @@ class _MenuPageState extends State<MenuPage> {
               child: Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.9),
+                    color: Colors.red,
                     borderRadius: BorderRadius.circular(8)),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -152,7 +154,7 @@ class _MenuPageState extends State<MenuPage> {
                       padding: const EdgeInsets.only(top: 8),
                       child: Text(
                         titleItem1,
-                        style: TextStyle(fontWeight: FontWeight.w600),
+                        style: TextStyle(fontWeight: FontWeight.w600, color: Colors.white),
                       ),
                     )
                   ],
@@ -170,20 +172,20 @@ class _MenuPageState extends State<MenuPage> {
               child: Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.9),
+                    color: Colors.yellow,
                     borderRadius: BorderRadius.circular(8)),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image.asset(
                       "assets/icon2.jpg",
-                      width: 60,
+                      width: 54,
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 8),
                       child: Text(
                         titleItem2,
-                        style: TextStyle(fontWeight: FontWeight.w600),
+                        style: TextStyle(fontWeight: FontWeight.w600, ),
                       ),
                     )
                   ],
@@ -201,7 +203,7 @@ class _MenuPageState extends State<MenuPage> {
               child: Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.9),
+                    color: Colors.green,
                     borderRadius: BorderRadius.circular(8)),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -214,7 +216,7 @@ class _MenuPageState extends State<MenuPage> {
                       padding: const EdgeInsets.only(top: 8),
                       child: Text(
                         titleItem3,
-                        style: TextStyle(fontWeight: FontWeight.w600),
+                        style: TextStyle(fontWeight: FontWeight.w600, color: Colors.white),
                       ),
                     )
                   ],
@@ -232,7 +234,7 @@ class _MenuPageState extends State<MenuPage> {
               child: Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.9),
+                    color: Colors.blue,
                     borderRadius: BorderRadius.circular(8)),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -245,7 +247,7 @@ class _MenuPageState extends State<MenuPage> {
                       padding: const EdgeInsets.only(top: 8),
                       child: Text(
                         titleItem4,
-                        style: TextStyle(fontWeight: FontWeight.w600),
+                        style: TextStyle(fontWeight: FontWeight.w600, color: Colors.white),
                       ),
                     )
                   ],
@@ -263,7 +265,7 @@ class _MenuPageState extends State<MenuPage> {
               child: Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.9),
+                    color: Colors.pinkAccent,
                     borderRadius: BorderRadius.circular(8)),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -276,7 +278,7 @@ class _MenuPageState extends State<MenuPage> {
                       padding: const EdgeInsets.only(top: 8),
                       child: Text(
                         titleItem5,
-                        style: TextStyle(fontWeight: FontWeight.w600),
+                        style: TextStyle(fontWeight: FontWeight.w600, color: Colors.white),
                       ),
                     )
                   ],
@@ -294,7 +296,7 @@ class _MenuPageState extends State<MenuPage> {
               child: Container(
                 padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.9),
+                    color: Colors.orange,
                     borderRadius: BorderRadius.circular(8)),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -307,7 +309,7 @@ class _MenuPageState extends State<MenuPage> {
                       padding: const EdgeInsets.only(top: 8),
                       child: Text(
                         titleItem6,
-                        style: TextStyle(fontWeight: FontWeight.w600),
+                        style: TextStyle(fontWeight: FontWeight.w600, color: Colors.white),
                       ),
                     )
                   ],

@@ -80,6 +80,7 @@ class _PAngkaPageState extends State<PAngkaPage> {
       backgroundsMenu,
       width: size.width,
       height: size.height,
+      opacity: AlwaysStoppedAnimation(0.2),
     );
   }
 
@@ -102,21 +103,21 @@ class _PAngkaPageState extends State<PAngkaPage> {
             child: Container(
                 padding: const EdgeInsets.fromLTRB(8, 40, 8, 8),
                 decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.7),
+                    color: Colors.white,
                     borderRadius: BorderRadius.circular(8)),
                 child: Text(
                   titleItem2.toUpperCase(),
                   style: TextStyle(
                       fontSize: 30,
                       fontFamily: 'Kid Games',
-                      color: Colors.orange),
+                      color: Colors.red),
                 ))));
   }
 
   Widget buildItem(String namaAngka) {
     return Positioned.fill(
       left: 0,
-      top: 120,
+      top: 100,
       bottom: 0,
       child: Column(
         children: [
@@ -126,27 +127,44 @@ class _PAngkaPageState extends State<PAngkaPage> {
               GestureDetector(
                   onTap: () => pageController.previousPage(
                       duration: duration, curve: curve),
-                  child: Image.asset(
-                    "assets/previous.png",
-                    width: 40,
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8)
+                    ),
+                    color: Colors.green,
+                    child: Container(
+                      margin: const EdgeInsets.all(8),
+                      child: Image.asset(
+                        "assets/previous.png",
+                        width: 40,
+                      ),
+                    ),
                   )),
               Container(
-                padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8),
-                    color: Colors.white.withOpacity(0.7)),
+                    color: Colors.white, border: Border.all(color: Colors.blue, width: 5)),
                 child: Text(
                   namaAngka,
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 140, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 160, fontWeight: FontWeight.bold),
                 ),
               ),
               GestureDetector(
                   onTap: () =>
                       pageController.nextPage(duration: duration, curve: curve),
-                  child: Image.asset(
-                    "assets/next.png",
-                    width: 40,
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8)
+                    ),
+                    color: Colors.green,
+                    child: Container(
+                      margin: const EdgeInsets.all(8),
+                      child: Image.asset(
+                        "assets/next.png",
+                        width: 40,
+                      ),
+                    ),
                   )),
             ],
           )

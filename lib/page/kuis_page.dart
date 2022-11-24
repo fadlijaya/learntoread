@@ -144,7 +144,10 @@ class _KuisPageState extends State<KuisPage> {
                           width: 40,
                         ),
                         GestureDetector(
-                            onTap: () => Navigator.pushNamed(context, '/kuis'),
+                            onTap: () {
+                              Navigator.pushNamed(context, '/kuis');
+                              kuisTebakGambar.reset();
+                            },
                             child: SvgPicture.asset("assets/button-ulangi.svg", width: 60,))
                       ],
                     ))
@@ -201,6 +204,7 @@ class _KuisPageState extends State<KuisPage> {
         child: Image.asset(
           backgroundsMenu,
           fit: BoxFit.cover,
+          opacity: AlwaysStoppedAnimation(0.2),
         ),
       ),
     );
@@ -290,8 +294,8 @@ class _KuisPageState extends State<KuisPage> {
                       margin: const EdgeInsets.only(bottom: 24),
                       child: Image.asset(
                         kuisTebakGambar.getImage(),
-                        width: 140,
-                        height: 140,
+                        width: 160,
+                        height: 160,
                       ),
                     ),
                     Row(
@@ -322,7 +326,7 @@ class _KuisPageState extends State<KuisPage> {
           onPressed: () => cekJawaban(trueOrFalse),
           child: Text(
             correctOrWrong,
-            style: const TextStyle(color: Colors.black),
+            style: const TextStyle(color: Colors.black, fontSize: 20),
           )),
     );
   }
