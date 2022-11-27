@@ -94,10 +94,10 @@ class _PHewanPageState extends State<PHewanPage> {
 
   Widget buildBackground(Size size) {
     return Image.asset(
-      backgroundsMenu,
+      backgroundsItemPage,
       width: size.width,
       height: size.height,
-      opacity: AlwaysStoppedAnimation(0.2),
+      opacity: AlwaysStoppedAnimation(0.7),
     );
   }
 
@@ -107,9 +107,19 @@ class _PHewanPageState extends State<PHewanPage> {
         left: 24,
         child: GestureDetector(
             onTap: () => Navigator.pushNamed(context, '/menu'),
-            child: Image.asset(
-              "assets/back.png",
-              width: 40,
+            child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+              elevation: 5,
+              shadowColor: Colors.black,
+              child: Container(
+                padding: const EdgeInsets.all(4),
+                child: Image.asset(
+                  "assets/back.png",
+                  width: 40,
+                ),
+              ),
             )));
   }
 
@@ -118,84 +128,67 @@ class _PHewanPageState extends State<PHewanPage> {
         child: Align(
             alignment: Alignment.topCenter,
             child: Container(
-                padding: const EdgeInsets.fromLTRB(8, 40, 8, 8),
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(8)),
+                margin: const EdgeInsets.fromLTRB(8, 40, 8, 8),
                 child: Text(
                   titleItem4.toUpperCase(),
                   style: TextStyle(
                       fontSize: 30,
                       fontFamily: 'Kid Games',
-                      color: Colors.blue),
+                      color: Colors.white),
                 ))));
   }
 
   Widget buildItem(String nama, String image) {
     return Positioned.fill(
-      left: 0,
-      top: 100,
+      left: 40,
+      top: 80,
+      right: 40,
       bottom: 0,
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              GestureDetector(
-                  onTap: () => pageController.previousPage(
-                      duration: duration, curve: curve),
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8)
+      child: Container(
+        padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+          ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            GestureDetector(
+                onTap: () => pageController.previousPage(
+                    duration: duration, curve: curve),
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8)
+                  ),
+                  color: Colors.green,
+                  child: Container(
+                    margin: const EdgeInsets.all(8),
+                    child: Image.asset(
+                      "assets/previous.png",
+                      width: 40,
                     ),
-                    color: Colors.green,
-                    child: Container(
-                      margin: const EdgeInsets.all(8),
-                      child: Image.asset(
-                        "assets/previous.png",
-                        width: 40,
-                      ),
+                  ),
+                )),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: Image.asset(image, width: 220,)),
+            GestureDetector(
+                onTap: () =>
+                    pageController.nextPage(duration: duration, curve: curve),
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8)
+                  ),
+                  color: Colors.green,
+                  child: Container(
+                    margin: const EdgeInsets.all(8),
+                    child: Image.asset(
+                      "assets/next.png",
+                      width: 40,
                     ),
-                  )),
-              Container(
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: Colors.white),
-                child: Row(
-                  children: [
-                    Image.asset(image, width: 200,),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 24),
-                      child: Text(
-                        nama,
-                        style:
-                            TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              GestureDetector(
-                  onTap: () =>
-                      pageController.nextPage(duration: duration, curve: curve),
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8)
-                    ),
-                    color: Colors.green,
-                    child: Container(
-                      margin: const EdgeInsets.all(8),
-                      child: Image.asset(
-                        "assets/next.png",
-                        width: 40,
-                      ),
-                    ),
-                  )),
-            ],
-          )
-        ],
+                  ),
+                )),
+          ],
+        ),
       ),
     );
   }

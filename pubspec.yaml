@@ -51,15 +51,26 @@ flutter:
 
   assets:
     - audio/backsound.mp3
-    - assets/backgrounds.webp
+    - audio/congrats.mp3
+    - assets/backgrounds.jpg
+    - assets/backgrounds-item-page.jpg
+    - assets/backgrounds-kuis.jpg
     - assets/icon1.png
-    - assets/icon2.jpg
-    - assets/icon3.jpg
+    - assets/icon2.png
+    - assets/icon3.png
     - assets/icon4.png
-    - assets/icon5.jpg
+    - assets/icon5.png
     - assets/icon6.png
-    - assets/A.png
-    - assets/1.png
+    - assets/kuis/A.png
+    - assets/kuis/1.png
+    - assets/kuis/red.png
+    - assets/kuis/cat.png
+    - assets/kuis/alif.png
+    - assets/kuis/blue.png
+    - assets/kuis/yellow.png
+    - assets/kuis/elephant.png
+    - assets/kuis/sho.png
+    - assets/kuis/orange.png
     - assets/frame-kuis.svg
     - assets/button-menu.svg
     - assets/button-ulangi.svg
@@ -71,10 +82,46 @@ flutter:
     - assets/previous.png
     - assets/enable.png
     - assets/disable.png
+    - assets/pengenalan-huruf/HURUF-A.png
+    - assets/pengenalan-huruf/HURUF-B.png
+    - assets/pengenalan-huruf/HURUF-C.png
+    - assets/pengenalan-huruf/HURUF-D.png
+    - assets/pengenalan-huruf/HURUF-E.png
+    - assets/pengenalan-huruf/HURUF-F.png
+    - assets/pengenalan-huruf/HURUF-G.png
+    - assets/pengenalan-huruf/HURUF-H.png
+    - assets/pengenalan-huruf/HURUF-I.png
+    - assets/pengenalan-huruf/HURUF-J.png
+    - assets/pengenalan-huruf/HURUF-K.png
+    - assets/pengenalan-huruf/HURUF-L.png
+    - assets/pengenalan-huruf/HURUF-M.png
+    - assets/pengenalan-huruf/HURUF-N.png
+    - assets/pengenalan-huruf/HURUF-O.png
+    - assets/pengenalan-huruf/HURUF-P.png
+    - assets/pengenalan-huruf/HURUF-Q.png
+    - assets/pengenalan-huruf/HURUF-R.png
+    - assets/pengenalan-huruf/HURUF-S.png
+    - assets/pengenalan-huruf/HURUF-T.png
+    - assets/pengenalan-huruf/HURUF-U.png
+    - assets/pengenalan-huruf/HURUF-V.png
+    - assets/pengenalan-huruf/HURUF-W.png
+    - assets/pengenalan-huruf/HURUF-X.png
+    - assets/pengenalan-huruf/HURUF-Y.png
+    - assets/pengenalan-huruf/HURUF-Z.png
+    - assets/pengenalan-angka/angka-0.png
+    - assets/pengenalan-angka/angka-1.png
+    - assets/pengenalan-angka/angka-2.png
+    - assets/pengenalan-angka/angka-3.png
+    - assets/pengenalan-angka/angka-4.png
+    - assets/pengenalan-angka/angka-5.png
+    - assets/pengenalan-angka/angka-6.png
+    - assets/pengenalan-angka/angka-7.png
+    - assets/pengenalan-angka/angka-8.png
+    - assets/pengenalan-angka/angka-9.png
     - assets/pengenalan-warna/black.png
     - assets/pengenalan-warna/blue.png
     - assets/pengenalan-warna/chocolate.png
-    - assets/pengenalan-warna/cream.png
+    - assets/pengenalan-warna/pink.png
     - assets/pengenalan-warna/green.png
     - assets/pengenalan-warna/grey.png
     - assets/pengenalan-warna/orange.png

@@ -1,5 +1,7 @@
 const String titleApp = "Edu Kids";
-const String backgroundsMenu = "assets/backgrounds.webp";
+const String backgroundsMenu = "assets/backgrounds.jpg";
+const String backgroundsItemPage = "assets/backgrounds-item-page.jpg";
+const String backgroundsKuisPage = "assets/backgrounds-kuis.jpg";
 
 const String titleItem1 = "Pengenalan Huruf";
 const String titleItem2 = "Pengenalan Angka";

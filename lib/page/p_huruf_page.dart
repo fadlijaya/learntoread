@@ -20,15 +20,32 @@ class _PHurufPageState extends State<PHurufPage> {
   List<Huruf>? hurufList;
 
   static List<String> huruf = [
-    'A B C',
-    'D E F',
-    'G H I',
-    'J K L',
-    'M N O',
-    'P Q R',
-    'S T U',
-    'V W X',
-    'Y Z',
+    'assets/pengenalan-huruf/HURUF-A.png',
+    'assets/pengenalan-huruf/HURUF-B.png',
+    'assets/pengenalan-huruf/HURUF-C.png',
+    'assets/pengenalan-huruf/HURUF-D.png',
+    'assets/pengenalan-huruf/HURUF-E.png',
+    'assets/pengenalan-huruf/HURUF-F.png',
+    'assets/pengenalan-huruf/HURUF-G.png',
+    'assets/pengenalan-huruf/HURUF-H.png',
+    'assets/pengenalan-huruf/HURUF-I.png',
+    'assets/pengenalan-huruf/HURUF-J.png',
+    'assets/pengenalan-huruf/HURUF-K.png',
+    'assets/pengenalan-huruf/HURUF-L.png',
+    'assets/pengenalan-huruf/HURUF-M.png',
+    'assets/pengenalan-huruf/HURUF-N.png',
+    'assets/pengenalan-huruf/HURUF-O.png',
+    'assets/pengenalan-huruf/HURUF-P.png',
+    'assets/pengenalan-huruf/HURUF-Q.png',
+    'assets/pengenalan-huruf/HURUF-R.png',
+    'assets/pengenalan-huruf/HURUF-S.png',
+    'assets/pengenalan-huruf/HURUF-T.png',
+    'assets/pengenalan-huruf/HURUF-U.png',
+    'assets/pengenalan-huruf/HURUF-V.png',
+    'assets/pengenalan-huruf/HURUF-W.png',
+    'assets/pengenalan-huruf/HURUF-X.png',
+    'assets/pengenalan-huruf/HURUF-Y.png',
+    'assets/pengenalan-huruf/HURUF-Z.png',
   ];
 
   final List<Huruf> listHuruf =
@@ -79,10 +96,10 @@ class _PHurufPageState extends State<PHurufPage> {
 
   Widget buildBackground(Size size) {
     return Image.asset(
-      backgroundsMenu,
+      backgroundsItemPage,
       width: size.width,
       height: size.height,
-      opacity: AlwaysStoppedAnimation(0.2),
+      opacity: AlwaysStoppedAnimation(0.7),
     );
   }
 
@@ -92,9 +109,19 @@ class _PHurufPageState extends State<PHurufPage> {
         left: 24,
         child: GestureDetector(
             onTap: () => Navigator.pushNamed(context, '/menu'),
-            child: Image.asset(
-              "assets/back.png",
-              width: 40,
+            child: Card(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+              elevation: 5,
+              shadowColor: Colors.black,
+              child: Container(
+                padding: const EdgeInsets.all(4),
+                child: Image.asset(
+                  "assets/back.png",
+                  width: 40,
+                ),
+              ),
             )));
   }
 
@@ -103,75 +130,65 @@ class _PHurufPageState extends State<PHurufPage> {
         child: Align(
             alignment: Alignment.topCenter,
             child: Container(
-                padding: const EdgeInsets.fromLTRB(8, 40, 8, 8),
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(8)),
+                margin: const EdgeInsets.fromLTRB(8, 40, 8, 8),
                 child: Text(
                   titleItem1.toUpperCase(),
                   style: TextStyle(
                       fontSize: 30,
                       fontFamily: 'Kid Games',
-                      color: Colors.red),
+                      color: Colors.white),
                 ))));
   }
 
   Widget buildItem(String namaHuruf) {
     return Positioned.fill(
-      left: 0,
-      top: 100,
+      left: 40,
+      top: 80,
+      right: 40,
       bottom: 0,
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              GestureDetector(
-                  onTap: () => pageController.previousPage(
-                      duration: duration, curve: curve),
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
+      child: Container(
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            GestureDetector(
+                onTap: () => pageController.previousPage(
+                    duration: duration, curve: curve),
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  color: Colors.green,
+                  child: Container(
+                    margin: const EdgeInsets.all(8),
+                    child: Image.asset(
+                      "assets/previous.png",
+                      width: 40,
                     ),
-                    color: Colors.green,
-                    child: Container(
-                      margin: const EdgeInsets.all(8),
-                      child: Image.asset(
-                        "assets/previous.png",
-                        width: 40,
-                      ),
+                  ),
+                )),
+            Image.asset(namaHuruf, fit: BoxFit.cover,),
+            GestureDetector(
+                onTap: () =>
+                    pageController.nextPage(duration: duration, curve: curve),
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8)
+                  ),
+                  color: Colors.green,
+                  child: Container(
+                    margin: const EdgeInsets.all(8),
+                    child: Image.asset(
+                      "assets/next.png",
+                      width: 40,
                     ),
-                  )),
-              Container(
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
-                    color: Colors.white, border: Border.all(color: Colors.blue, width: 5)),
-                child: Text(
-                  namaHuruf,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 160, fontWeight: FontWeight.bold),
-                ),
-              ),
-              GestureDetector(
-                  onTap: () =>
-                      pageController.nextPage(duration: duration, curve: curve),
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8)
-                    ),
-                    color: Colors.green,
-                    child: Container(
-                      margin: const EdgeInsets.all(8),
-                      child: Image.asset(
-                        "assets/next.png",
-                        width: 40,
-                      ),
-                    ),
-                  )),
-            ],
-          )
-        ],
+                  ),
+                )),
+          ],
+        ),
       ),
     );
   }

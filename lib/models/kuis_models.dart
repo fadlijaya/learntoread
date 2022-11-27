@@ -9,42 +9,42 @@ class KuisTebakGambar {
   int indexNumber = 0;
 
   final List<Kuis> kuisA = [
-    Kuis('assets/A.png', 'Huruf A', true),
-    Kuis('assets/1.png', 'Angka 2', false),
-    Kuis('assets/pengenalan-warna/red.png', 'Coklat', false),
-    Kuis('assets/pengenalan-hewan/cat.png', 'Kucing', true),
-    Kuis('assets/pengenalan-hijaiyyah/alif.png', 'Hamzah', false),
-    Kuis('assets/pengenalan-warna/blue.png', 'Ungu', false),
-    Kuis('assets/pengenalan-warna/yellow.png', 'Merah', false),
-    Kuis('assets/pengenalan-hewan/elephant.png', 'Gajah', true),
-    Kuis('assets/pengenalan-hijaiyyah/sho.png', 'Sho', true),
-    Kuis('assets/pengenalan-warna/orange.png', 'Hijau', false),
+    Kuis('assets/kuis/A.png', 'Huruf A', true),
+    Kuis('assets/kuis/1.png', 'Angka 2', false),
+    Kuis('assets/kuis/red.png', 'Coklat', false),
+    Kuis('assets/kuis/cat.png', 'Kucing', true),
+    Kuis('assets/kuis/alif.png', 'Hamzah', false),
+    Kuis('assets/kuis/blue.png', 'Ungu', false),
+    Kuis('assets/kuis/yellow.png', 'Merah', false),
+    Kuis('assets/kuis/elephant.png', 'Gajah', true),
+    Kuis('assets/kuis/sho.png', 'Sho', true),
+    Kuis('assets/kuis/orange.png', 'Hijau', false),
   ];
 
   final List<Kuis> kuisB = [
     Kuis('assets/A.png', 'Huruf B', false),
     Kuis('assets/1.png', 'Angka 1', true),
-    Kuis('assets/pengenalan-warna/red.png', 'Biru', false),
-    Kuis('assets/pengenalan-hewan/cat.png', 'Anjing', false),
-    Kuis('assets/pengenalan-hijaiyyah/alif.png', 'Alif', true),
-    Kuis('assets/pengenalan-warna/blue.png', 'Biru', true),
-    Kuis('assets/pengenalan-warna/yellow.png', 'Kuning', true),
-    Kuis('assets/pengenalan-hewan/elephant.png', 'Kuda', false),
-    Kuis('assets/pengenalan-hijaiyyah/sho.png', 'Sa', false),
-    Kuis('assets/pengenalan-warna/orange.png', 'Jingga', true),
+    Kuis('assets/kuis/red.png', 'Biru', false),
+    Kuis('assets/kuis/cat.png', 'Anjing', false),
+    Kuis('assets/kuis/alif.png', 'Alif', true),
+    Kuis('assets/kuis/blue.png', 'Biru', true),
+    Kuis('assets/kuis/yellow.png', 'Kuning', true),
+    Kuis('assets/kuis/elephant.png', 'Kuda', false),
+    Kuis('assets/kuis/sho.png', 'Sa', false),
+    Kuis('assets/kuis/orange.png', 'Jingga', true),
   ];
 
   final List<Kuis> kuisC = [
     Kuis('assets/A.png', 'Huruf C', false),
     Kuis('assets/1.png', 'Angka 3', false),
-    Kuis('assets/pengenalan-warna/red.png', 'Merah', true),
-    Kuis('assets/pengenalan-hewan/cat.png', 'Singa', false),
-    Kuis('assets/pengenalan-hijaiyyah/alif.png', 'Lam', false),
-    Kuis('assets/pengenalan-warna/blue.png', 'Hitam', false),
-    Kuis('assets/pengenalan-warna/yellow.png', 'Biru', false),
-    Kuis('assets/pengenalan-hewan/elephant.png', 'Babi', false),
-    Kuis('assets/pengenalan-hijaiyyah/sho.png', 'Sya', false),
-    Kuis('assets/pengenalan-warna/orange.png', 'Kuning', false),
+    Kuis('assets/kuis/red.png', 'Merah', true),
+    Kuis('assets/kuis/cat.png', 'Singa', false),
+    Kuis('assets/kuis/alif.png', 'Lam', false),
+    Kuis('assets/kuis/blue.png', 'Hitam', false),
+    Kuis('assets/kuis/yellow.png', 'Biru', false),
+    Kuis('assets/kuis/elephant.png', 'Babi', false),
+    Kuis('assets/kuis/sho.png', 'Sya', false),
+    Kuis('assets/kuis/orange.png', 'Kuning', false),
   ];
 
   nextQuestion() {

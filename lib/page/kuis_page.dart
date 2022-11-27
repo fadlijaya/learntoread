@@ -1,14 +1,12 @@
 import 'dart:async';
-import 'dart:ui';
 
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:learntoread/models/kuis_models.dart';
 import 'package:learntoread/utils/constants.dart';
-import 'package:wakelock/wakelock.dart';
 
 KuisTebakGambar kuisTebakGambar = KuisTebakGambar();
 
@@ -20,6 +18,7 @@ class KuisPage extends StatefulWidget {
 }
 
 class _KuisPageState extends State<KuisPage> {
+  AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
   PageController pageController = PageController();
   Duration duration = const Duration(milliseconds: 500);
   Curve curve = Curves.ease;
@@ -35,12 +34,19 @@ class _KuisPageState extends State<KuisPage> {
     setState(() {
       if (kuisTebakGambar.isFinished() == true) {
         Future.delayed(const Duration(seconds: 1), () {
+          assetsAudioPlayer.open(
+            Audio("audio/congrats.mp3"),
+            loopMode: LoopMode.single,
+            showNotification: false,
+          );
           endQuiz();
         });
         stopTimer();
         kuisTebakGambar.reset();
       } else {
-        if (userPilihJawaban == jawabanBenar1 || jawabanBenar2 || jawabanBenar3) {
+        if (userPilihJawaban == jawabanBenar1 ||
+            jawabanBenar2 ||
+            jawabanBenar3) {
           Fluttertoast.showToast(
               msg: 'Benar',
               fontSize: 24.0,
@@ -70,7 +76,8 @@ class _KuisPageState extends State<KuisPage> {
           }
         }
 
-        Future.delayed(Duration(seconds: 1), () => kuisTebakGambar.nextQuestion());
+        Future.delayed(
+            const Duration(seconds: 1), () => kuisTebakGambar.nextQuestion());
       }
     });
   }
@@ -84,7 +91,10 @@ class _KuisPageState extends State<KuisPage> {
             backgroundColor: Colors.transparent,
             content: Stack(
               children: [
-                SvgPicture.asset("assets/frame-kuis.svg", width: 240,),
+                SvgPicture.asset(
+                  "assets/frame-kuis.svg",
+                  width: 240,
+                ),
                 Positioned(
                   top: 20,
                   left: 0,
@@ -99,7 +109,7 @@ class _KuisPageState extends State<KuisPage> {
                           allowHalfRating: true,
                           itemCount: 5,
                           itemBuilder: (context, i) {
-                            return Icon(
+                            return const Icon(
                               Icons.star,
                               color: Colors.orange,
                             );
@@ -119,13 +129,16 @@ class _KuisPageState extends State<KuisPage> {
                   right: 0,
                   child: Column(
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 12),
-                        child: Text("Total Nilai", style: TextStyle(fontSize: 20),),
+                      const Padding(
+                        padding: EdgeInsets.symmetric(vertical: 12),
+                        child: Text(
+                          "Total Nilai",
+                          style: TextStyle(fontSize: 20),
+                        ),
                       ),
                       Text(
                         "$skor",
-                        style: TextStyle(fontSize: 60),
+                        style: const TextStyle(fontSize: 60),
                       ),
                     ],
                   ),
@@ -138,17 +151,31 @@ class _KuisPageState extends State<KuisPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         GestureDetector(
-                            onTap: () => Navigator.pushNamed(context, '/menu'),
-                            child: SvgPicture.asset("assets/button-menu.svg", width: 60,)),
-                        SizedBox(
+                            onTap: () {
+                              setState(() {
+                                assetsAudioPlayer.stop();
+                              });
+                              Navigator.pushNamed(context, '/menu');
+                            },
+                            child: SvgPicture.asset(
+                              "assets/button-menu.svg",
+                              width: 60,
+                            )),
+                        const SizedBox(
                           width: 40,
                         ),
                         GestureDetector(
                             onTap: () {
+                              setState(() {
+                                assetsAudioPlayer.stop();
+                              });
                               Navigator.pushNamed(context, '/kuis');
                               kuisTebakGambar.reset();
                             },
-                            child: SvgPicture.asset("assets/button-ulangi.svg", width: 60,))
+                            child: SvgPicture.asset(
+                              "assets/button-ulangi.svg",
+                              width: 60,
+                            ))
                       ],
                     ))
               ],
@@ -158,7 +185,7 @@ class _KuisPageState extends State<KuisPage> {
   }
 
   startTimer() {
-    timer = Timer.periodic(Duration(seconds: 1), (_) {
+    timer = Timer.periodic(const Duration(seconds: 1), (_) {
       if (maxSeconds > 0) {
         if (!mounted) return;
         setState(() {
@@ -184,6 +211,12 @@ class _KuisPageState extends State<KuisPage> {
   }
 
   @override
+  void dispose() {
+    assetsAudioPlayer.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
@@ -191,22 +224,19 @@ class _KuisPageState extends State<KuisPage> {
         width: size.width,
         height: size.height,
         child: Stack(
-          children: [buildBackground(), buildListItem(size)],
+          children: [buildBackground(size), buildListItem(size)],
         ),
       ),
     );
   }
 
-  Widget buildBackground() {
-    return Positioned.fill(
-      child: Align(
-        alignment: Alignment.center,
-        child: Image.asset(
-          backgroundsMenu,
-          fit: BoxFit.cover,
-          opacity: AlwaysStoppedAnimation(0.2),
-        ),
-      ),
+  Widget buildBackground(Size size) {
+    return Image.asset(
+      backgroundsKuisPage,
+      width: size.width,
+      height: size.height,
+      fit: BoxFit.cover,
+      opacity: const AlwaysStoppedAnimation(0.7),
     );
   }
 
@@ -218,53 +248,77 @@ class _KuisPageState extends State<KuisPage> {
             stopTimer();
             Navigator.pushNamed(context, '/menu');
           },
-          child: Image.asset("assets/back.png", width: 40,)),
+          child: Card(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+            elevation: 5,
+            shadowColor: Colors.black,
+            child: Container(
+                padding: const EdgeInsets.all(4),
+                child: Image.asset(
+                  "assets/back.png",
+                  width: 40,
+                )),
+          )),
     );
   }
 
   Widget buildTimer() {
-    return Container(
-      width: 100,
+    return Card(
       margin: const EdgeInsets.only(top: 24, left: 60),
-      padding: const EdgeInsets.all(8),
-      decoration: BoxDecoration(
-          color: Colors.green, borderRadius: BorderRadius.circular(16)),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Image.asset("assets/timer.png", width: 24,),
-          Text(
-            '$maxSeconds',
-            style: TextStyle(fontSize: 24, color: Colors.white),
-          )
-        ],
+      color: Colors.green,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      elevation: 7,
+      shadowColor: Colors.black,
+      child: Container(
+        width: 100,
+        padding: const EdgeInsets.all(8),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Image.asset(
+              "assets/timer.png",
+              width: 24,
+            ),
+            Text(
+              '$maxSeconds',
+              style: const TextStyle(fontSize: 24, color: Colors.white),
+            )
+          ],
+        ),
       ),
     );
   }
 
   Widget buildSkor() {
-    return Container(
-      width: 100,
+    return Card(
       margin: const EdgeInsets.only(top: 24, right: 60),
-      padding: const EdgeInsets.all(8),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16), color: Colors.green),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Image.asset("assets/accept.png", width: 24,),
-          Text(
-            '$skor',
-            style: TextStyle(fontSize: 24, color: Colors.white),
-          )
-        ],
+      color: Colors.green,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      elevation: 7,
+      shadowColor: Colors.black,
+      child: Container(
+        width: 100,
+        padding: const EdgeInsets.all(8),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Image.asset(
+              "assets/accept.png",
+              width: 24,
+            ),
+            Text(
+              '$skor',
+              style: const TextStyle(fontSize: 24, color: Colors.white),
+            )
+          ],
+        ),
       ),
     );
   }
 
   Widget buildListItem(Size size) {
-    return Container(
-      padding: const EdgeInsets.only(bottom: 24),
+    return SizedBox(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -286,24 +340,30 @@ class _KuisPageState extends State<KuisPage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Container(
-                      padding: const EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-                          color: Colors.white),
-                      margin: const EdgeInsets.only(bottom: 24),
-                      child: Image.asset(
-                        kuisTebakGambar.getImage(),
-                        width: 160,
-                        height: 160,
+                    Card(
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8)),
+                      elevation: 7,
+                      shadowColor: Colors.black,
+                      margin: const EdgeInsets.only(bottom: 16),
+                      child: Container(
+                        padding: const EdgeInsets.all(8),
+                        child: Image.asset(
+                          kuisTebakGambar.getImage(),
+                          width: 160,
+                          height: 160,
+                        ),
                       ),
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        checkingAnswer(kuisTebakGambar.getQuestion1(), kuisTebakGambar.getAnswer1()),
-                        checkingAnswer(kuisTebakGambar.getQuestion2(), kuisTebakGambar.getAnswer2()),
-                        checkingAnswer(kuisTebakGambar.getQuestion3(), kuisTebakGambar.getAnswer3()),
+                        checkingAnswer(kuisTebakGambar.getQuestion1(),
+                            kuisTebakGambar.getAnswer1()),
+                        checkingAnswer(kuisTebakGambar.getQuestion2(),
+                            kuisTebakGambar.getAnswer2()),
+                        checkingAnswer(kuisTebakGambar.getQuestion3(),
+                            kuisTebakGambar.getAnswer3()),
                       ],
                     ),
                   ],
@@ -317,17 +377,22 @@ class _KuisPageState extends State<KuisPage> {
   }
 
   Widget checkingAnswer(String correctOrWrong, bool trueOrFalse) {
-    return Container(
-      decoration: BoxDecoration(
+    return Card(
+      shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: Colors.orange, width: 5),
-          color: Colors.white),
-      child: TextButton(
-          onPressed: () => cekJawaban(trueOrFalse),
-          child: Text(
-            correctOrWrong,
-            style: const TextStyle(color: Colors.black, fontSize: 20),
-          )),
+          side: BorderSide(color: Colors.yellow, width: 3)),
+      color: Colors.orange,
+      elevation: 7,
+      shadowColor: Colors.black,
+      child: Container(
+        padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+        child: TextButton(
+            onPressed: () => cekJawaban(trueOrFalse),
+            child: Text(
+              correctOrWrong,
+              style: const TextStyle(color: Colors.white, fontSize: 20),
+            )),
+      ),
     );
   }
 }

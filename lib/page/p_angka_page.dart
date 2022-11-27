@@ -20,13 +20,16 @@ class _PAngkaPageState extends State<PAngkaPage> {
   List<Angka>? angkaList;
 
   static List<String> angka = [
-    '1 2 3',
-    '4 5 6',
-    '7 8 9',
-    '10 11 12',
-    '13 14 15',
-    '16 17 18',
-    '19 20',
+    'assets/pengenalan-angka/angka-0.png',
+    'assets/pengenalan-angka/angka-1.png',
+    'assets/pengenalan-angka/angka-2.png',
+    'assets/pengenalan-angka/angka-3.png',
+    'assets/pengenalan-angka/angka-4.png',
+    'assets/pengenalan-angka/angka-5.png',
+    'assets/pengenalan-angka/angka-6.png',
+    'assets/pengenalan-angka/angka-7.png',
+    'assets/pengenalan-angka/angka-8.png',
+    'assets/pengenalan-angka/angka-9.png'
   ];
 
   final List<Angka> listAngka =
@@ -77,10 +80,10 @@ class _PAngkaPageState extends State<PAngkaPage> {
 
   Widget buildBackground(Size size) {
     return Image.asset(
-      backgroundsMenu,
+      backgroundsItemPage,
       width: size.width,
       height: size.height,
-      opacity: AlwaysStoppedAnimation(0.2),
+      opacity: AlwaysStoppedAnimation(0.7),
     );
   }
 
@@ -90,9 +93,19 @@ class _PAngkaPageState extends State<PAngkaPage> {
         left: 24,
         child: GestureDetector(
             onTap: () => Navigator.pushNamed(context, '/menu'),
-            child: Image.asset(
-              "assets/back.png",
-              width: 40,
+            child: Card(
+               shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+              elevation: 5,
+              shadowColor: Colors.black,
+              child: Container(
+                padding: const EdgeInsets.all(4),
+                child: Image.asset(
+                  "assets/back.png",
+                  width: 40,
+                ),
+              ),
             )));
   }
 
@@ -101,74 +114,65 @@ class _PAngkaPageState extends State<PAngkaPage> {
         child: Align(
             alignment: Alignment.topCenter,
             child: Container(
-                padding: const EdgeInsets.fromLTRB(8, 40, 8, 8),
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(8)),
+                margin: const EdgeInsets.fromLTRB(8, 40, 8, 8),
                 child: Text(
                   titleItem2.toUpperCase(),
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 30,
                       fontFamily: 'Kid Games',
-                      color: Colors.red),
+                      color: Colors.white),
                 ))));
   }
 
   Widget buildItem(String namaAngka) {
     return Positioned.fill(
-      left: 0,
-      top: 100,
+      left: 40,
+      top: 80,
+      right: 40,
       bottom: 0,
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              GestureDetector(
-                  onTap: () => pageController.previousPage(
-                      duration: duration, curve: curve),
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8)
+      child: Container(
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            GestureDetector(
+                onTap: () => pageController.previousPage(
+                    duration: duration, curve: curve),
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8)
+                  ),
+                  color: Colors.green,
+                  child: Container(
+                    margin: const EdgeInsets.all(8),
+                    child: Image.asset(
+                      "assets/previous.png",
+                      width: 40,
                     ),
-                    color: Colors.green,
-                    child: Container(
-                      margin: const EdgeInsets.all(8),
-                      child: Image.asset(
-                        "assets/previous.png",
-                        width: 40,
-                      ),
+                  ),
+                )),
+            Image.asset(namaAngka, fit: BoxFit.cover,),
+            GestureDetector(
+                onTap: () =>
+                    pageController.nextPage(duration: duration, curve: curve),
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8)
+                  ),
+                  color: Colors.green,
+                  child: Container(
+                    margin: const EdgeInsets.all(8),
+                    child: Image.asset(
+                      "assets/next.png",
+                      width: 40,
                     ),
-                  )),
-              Container(
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8),
-                    color: Colors.white, border: Border.all(color: Colors.blue, width: 5)),
-                child: Text(
-                  namaAngka,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 160, fontWeight: FontWeight.bold),
-                ),
-              ),
-              GestureDetector(
-                  onTap: () =>
-                      pageController.nextPage(duration: duration, curve: curve),
-                  child: Card(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8)
-                    ),
-                    color: Colors.green,
-                    child: Container(
-                      margin: const EdgeInsets.all(8),
-                      child: Image.asset(
-                        "assets/next.png",
-                        width: 40,
-                      ),
-                    ),
-                  )),
-            ],
-          )
-        ],
+                  ),
+                )),
+          ],
+        ),
       ),
     );
   }
