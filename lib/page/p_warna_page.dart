@@ -1,3 +1,4 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:wakelock/wakelock.dart';
@@ -13,6 +14,7 @@ class PWarnaPage extends StatefulWidget {
 }
 
 class _PWarnaPageState extends State<PWarnaPage> {
+  AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
   PageController pageController = PageController();
   Duration duration = const Duration(milliseconds: 500);
   Curve curve = Curves.ease;
@@ -47,25 +49,40 @@ class _PWarnaPageState extends State<PWarnaPage> {
     'assets/pengenalan-warna/white.png'
   ];
 
-  final List<Warna> listWarna =
-      List.generate(warna.length, (index) => Warna(warna[index], image[index]));
+  static List<String> assetAudio = [
+    'audio/pengenalan-warna/yellow.mp3',
+    'audio/pengenalan-warna/black.mp3',
+    'audio/pengenalan-warna/blue.mp3',
+    'audio/pengenalan-warna/chocolate.mp3',
+    'audio/pengenalan-warna/pink.mp3',
+    'audio/pengenalan-warna/green.mp3',
+    'audio/pengenalan-warna/grey.mp3',
+    'audio/pengenalan-warna/orange.mp3',
+    'audio/pengenalan-warna/purple.mp3',
+    'audio/pengenalan-warna/red.mp3',
+    'audio/pengenalan-warna/white.mp3'
+  ];
 
-  Future setLandscape() async {
-    // hide overlays statusbar
-    // ignore: deprecated_member_use
-    await SystemChrome.setEnabledSystemUIOverlays([]);
-    await SystemChrome.setPreferredOrientations([
-      DeviceOrientation.landscapeLeft,
-      DeviceOrientation.landscapeRight,
-    ]);
+   audio(String assetAudio) {
+    try {
+      assetsAudioPlayer.open(Audio(assetAudio));
+    } catch (e) {
 
-    await Wakelock.enable(); // keep device awake
+    }
   }
+
+  final List<Warna> listWarna =
+      List.generate(warna.length, (index) => Warna(warna[index], image[index], assetAudio[index]));
 
   @override
   void initState() {
-    setLandscape();
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    assetsAudioPlayer.dispose();
+    super.dispose();
   }
 
   @override
@@ -81,6 +98,7 @@ class _PWarnaPageState extends State<PWarnaPage> {
           physics: const NeverScrollableScrollPhysics(),
           onPageChanged: (int page) {},
           itemBuilder: (context, i) {
+            audio(listWarna[i].assetAudio);
             return Stack(
               children: [
                 buildBackground(size),

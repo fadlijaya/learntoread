@@ -1,3 +1,4 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:learntoread/models/p_hijaiyah_models.dart';
@@ -13,6 +14,7 @@ class PHijaiyahPage extends StatefulWidget {
 }
 
 class _PHijaiyahPageState extends State<PHijaiyahPage> {
+  AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
   PageController pageController = PageController();
   Duration duration = const Duration(milliseconds: 500);
   Curve curve = Curves.ease;
@@ -85,25 +87,59 @@ class _PHijaiyahPageState extends State<PHijaiyahPage> {
     'assets/pengenalan-hijaiyyah/ya.png',
   ];
 
-  final List<Hijaiyah> listHijaiyah = List.generate(
-      nama.length, (index) => Hijaiyah(nama[index], image[index]));
+   static List<String> assetAudio = [
+    "audio/pengenalan-hijaiyyah/alif.mp3",
+    "audio/pengenalan-hijaiyyah/ba.mp3",
+    "audio/pengenalan-hijaiyyah/ta.mp3",
+    "audio/pengenalan-hijaiyyah/tsa.mp3",
+    "audio/pengenalan-hijaiyyah/ja.mp3",
+    "audio/pengenalan-hijaiyyah/ha.mp3",
+    "audio/pengenalan-hijaiyyah/kha.mp3",
+    "audio/pengenalan-hijaiyyah/da.mp3",
+    "audio/pengenalan-hijaiyyah/dza.mp3",
+    "audio/pengenalan-hijaiyyah/ra.mp3",
+    "audio/pengenalan-hijaiyyah/za.mp3",
+    "audio/pengenalan-hijaiyyah/sa.mp3",
+    "audio/pengenalan-hijaiyyah/sya.mp3",
+    "audio/pengenalan-hijaiyyah/sho.mp3",
+    "audio/pengenalan-hijaiyyah/dho.mp3",
+    "audio/pengenalan-hijaiyyah/tho.mp3",
+    "audio/pengenalan-hijaiyyah/zho.mp3",
+    "audio/pengenalan-hijaiyyah/ain.mp3",
+    "audio/pengenalan-hijaiyyah/ghain.mp3",
+    "audio/pengenalan-hijaiyyah/fa.mp3",
+    "audio/pengenalan-hijaiyyah/qho.mp3",
+    "audio/pengenalan-hijaiyyah/ka.mp3",
+    "audio/pengenalan-hijaiyyah/la.mp3",
+    "audio/pengenalan-hijaiyyah/mim.mp3",
+    "audio/pengenalan-hijaiyyah/nun.mp3",
+    "audio/pengenalan-hijaiyyah/wa.mp3",
+    "audio/pengenalan-hijaiyyah/him.mp3",
+    "audio/pengenalan-hijaiyyah/lam.mp3",
+    "audio/pengenalan-hijaiyyah/hamzah.mp3",
+    "audio/pengenalan-hijaiyyah/ya.mp3"
+  ];
 
-  Future setLandscape() async {
-    // hide overlays statusbar
-    // ignore: deprecated_member_use
-    await SystemChrome.setEnabledSystemUIOverlays([]);
-    await SystemChrome.setPreferredOrientations([
-      DeviceOrientation.landscapeLeft,
-      DeviceOrientation.landscapeRight,
-    ]);
+  audio(String assetAudio) {
+    try {
+      assetsAudioPlayer.open(Audio(assetAudio));
+    } catch (e) {
 
-    await Wakelock.enable(); // keep device awake
+    }
   }
+
+  final List<Hijaiyah> listHijaiyah = List.generate(
+      nama.length, (index) => Hijaiyah(nama[index], image[index], assetAudio[index]));
 
   @override
   void initState() {
-    setLandscape();
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    assetsAudioPlayer.dispose();
+    super.dispose();
   }
 
   @override
@@ -119,6 +155,7 @@ class _PHijaiyahPageState extends State<PHijaiyahPage> {
           physics: const NeverScrollableScrollPhysics(),
           onPageChanged: (int page) {},
           itemBuilder: (context, i) {
+            audio(listHijaiyah[i].assetAudio);
             return Stack(
               children: [
                 buildBackground(size),

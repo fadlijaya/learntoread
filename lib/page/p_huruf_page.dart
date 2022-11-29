@@ -1,3 +1,4 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:learntoread/models/p_huruf_models.dart';
@@ -13,6 +14,7 @@ class PHurufPage extends StatefulWidget {
 }
 
 class _PHurufPageState extends State<PHurufPage> {
+  AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
   PageController pageController = PageController();
   Duration duration = const Duration(milliseconds: 500);
   Curve curve = Curves.ease;
@@ -48,25 +50,55 @@ class _PHurufPageState extends State<PHurufPage> {
     'assets/pengenalan-huruf/HURUF-Z.png',
   ];
 
+  static List<String> assetAudio = [
+    "audio/pengenalan-huruf/a.mp3",
+    "audio/pengenalan-huruf/b.mp3",
+    "audio/pengenalan-huruf/c.mp3",
+    "audio/pengenalan-huruf/d.mp3",
+    "audio/pengenalan-huruf/e.mp3",
+    "audio/pengenalan-huruf/f.mp3",
+    "audio/pengenalan-huruf/g.mp3",
+    "audio/pengenalan-huruf/h.mp3",
+    "audio/pengenalan-huruf/i.mp3",
+    "audio/pengenalan-huruf/j.mp3",
+    "audio/pengenalan-huruf/k.mp3",
+    "audio/pengenalan-huruf/l.mp3",
+    "audio/pengenalan-huruf/m.mp3",
+    "audio/pengenalan-huruf/n.mp3",
+    "audio/pengenalan-huruf/o.mp3",
+    "audio/pengenalan-huruf/p.mp3",
+    "audio/pengenalan-huruf/q.mp3",
+    "audio/pengenalan-huruf/r.mp3",
+    "audio/pengenalan-huruf/s.mp3",
+    "audio/pengenalan-huruf/t.mp3",
+    "audio/pengenalan-huruf/u.mp3",
+    "audio/pengenalan-huruf/v.mp3",
+    "audio/pengenalan-huruf/w.mp3",
+    "audio/pengenalan-huruf/x.mp3",
+    "audio/pengenalan-huruf/y.mp3",
+    "audio/pengenalan-huruf/z.mp3"
+  ];
+
   final List<Huruf> listHuruf =
-      List.generate(huruf.length, (index) => Huruf(huruf[index]));
+      List.generate(huruf.length, (index) => Huruf(huruf[index], assetAudio[index]));
 
-  Future setLandscape() async {
-    // hide overlays statusbar
-    // ignore: deprecated_member_use
-    await SystemChrome.setEnabledSystemUIOverlays([]);
-    await SystemChrome.setPreferredOrientations([
-      DeviceOrientation.landscapeLeft,
-      DeviceOrientation.landscapeRight,
-    ]);
+  audio(String assetAudio) {
+    try {
+      assetsAudioPlayer.open(Audio(assetAudio));
+    } catch (e) {
 
-    await Wakelock.enable(); // keep device awake
+    }
   }
 
   @override
   void initState() {
-    setLandscape();
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    pageController.dispose();
+    super.dispose();
   }
 
   @override
@@ -82,6 +114,7 @@ class _PHurufPageState extends State<PHurufPage> {
           physics: const NeverScrollableScrollPhysics(),
           onPageChanged: (int page) {},
           itemBuilder: (context, i) {
+            audio(listHuruf[i].assetAudio);
             return Stack(
               children: [
                 buildBackground(size),

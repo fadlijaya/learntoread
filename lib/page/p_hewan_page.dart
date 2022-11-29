@@ -1,3 +1,4 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:wakelock/wakelock.dart';
@@ -14,6 +15,7 @@ class PHewanPage extends StatefulWidget {
 }
 
 class _PHewanPageState extends State<PHewanPage> {
+  AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
   PageController pageController = PageController();
   Duration duration = const Duration(milliseconds: 500);
   Curve curve = Curves.ease;
@@ -34,7 +36,6 @@ class _PHewanPageState extends State<PHewanPage> {
   ];
 
   static List<String> image = [
-    'assets/pengenalan-hewan/cat.png',
     'assets/pengenalan-hewan/chicken.png',
     'assets/pengenalan-hewan/cow.png',
     'assets/pengenalan-hewan/crab.png',
@@ -46,25 +47,40 @@ class _PHewanPageState extends State<PHewanPage> {
     'assets/pengenalan-hewan/pig.png'
   ];
 
-  final List<Hewan> listHewan =
-      List.generate(hewan.length, (index) => Hewan(hewan[index], image[index]));
+   static List<String> assetAudio = [
+    "audio/pengenalan-hewan/chicken.mp3",
+    "audio/pengenalan-hewan/cow.mp3",
+    "audio/pengenalan-hewan/crab.mp3",
+    "audio/pengenalan-hewan/dog.mp3",
+    "audio/pengenalan-hewan/dolphin.mp3",
+    "audio/pengenalan-hewan/elephant.mp3",
+    "audio/pengenalan-hewan/horse.mp3",
+    "audio/pengenalan-hewan/lion.mp3",
+    "audio/pengenalan-hewan/pig.mp3"
+  ];
 
-  Future setLandscape() async {
-    // hide overlays statusbar
-    // ignore: deprecated_member_use
-    await SystemChrome.setEnabledSystemUIOverlays([]);
-    await SystemChrome.setPreferredOrientations([
-      DeviceOrientation.landscapeLeft,
-      DeviceOrientation.landscapeRight,
-    ]);
+   audio(String assetAudio) {
+    try {
+      assetsAudioPlayer.open(Audio(assetAudio));
+    } catch (e) {
 
-    await Wakelock.enable(); // keep device awake
+    }
   }
+
+
+  final List<Hewan> listHewan =
+      List.generate(hewan.length, (index) => Hewan(hewan[index], image[index], assetAudio[index]));
+
 
   @override
   void initState() {
-    setLandscape();
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    assetsAudioPlayer.dispose();
+    super.dispose();
   }
 
   @override
@@ -80,6 +96,7 @@ class _PHewanPageState extends State<PHewanPage> {
           physics: const NeverScrollableScrollPhysics(),
           onPageChanged: (int page) {},
           itemBuilder: (context, i) {
+            audio(listHewan[i].assetAudio);
             return Stack(
               children: [
                 buildBackground(size),

@@ -1,3 +1,4 @@
+import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:wakelock/wakelock.dart';
@@ -13,6 +14,7 @@ class PAngkaPage extends StatefulWidget {
 }
 
 class _PAngkaPageState extends State<PAngkaPage> {
+  AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
   PageController pageController = PageController();
   Duration duration = const Duration(milliseconds: 500);
   Curve curve = Curves.ease;
@@ -20,7 +22,6 @@ class _PAngkaPageState extends State<PAngkaPage> {
   List<Angka>? angkaList;
 
   static List<String> angka = [
-    'assets/pengenalan-angka/angka-0.png',
     'assets/pengenalan-angka/angka-1.png',
     'assets/pengenalan-angka/angka-2.png',
     'assets/pengenalan-angka/angka-3.png',
@@ -29,28 +30,43 @@ class _PAngkaPageState extends State<PAngkaPage> {
     'assets/pengenalan-angka/angka-6.png',
     'assets/pengenalan-angka/angka-7.png',
     'assets/pengenalan-angka/angka-8.png',
-    'assets/pengenalan-angka/angka-9.png'
+    'assets/pengenalan-angka/angka-9.png',
+    'assets/pengenalan-angka/angka-10.png',
   ];
 
-  final List<Angka> listAngka =
-      List.generate(angka.length, (index) => Angka(angka[index]));
+  static List<String> assetAudio = [
+    "audio/pengenalan-angka/1.mp3",
+    "audio/pengenalan-angka/2.mp3",
+    "audio/pengenalan-angka/3.mp3",
+    "audio/pengenalan-angka/4.mp3",
+    "audio/pengenalan-angka/5.mp3",
+    "audio/pengenalan-angka/6.mp3",
+    "audio/pengenalan-angka/7.mp3",
+    "audio/pengenalan-angka/8.mp3",
+    "audio/pengenalan-angka/9.mp3",
+    "audio/pengenalan-angka/10.mp3"
+  ];
 
-  Future setLandscape() async {
-    // hide overlays statusbar
-    // ignore: deprecated_member_use
-    await SystemChrome.setEnabledSystemUIOverlays([]);
-    await SystemChrome.setPreferredOrientations([
-      DeviceOrientation.landscapeLeft,
-      DeviceOrientation.landscapeRight,
-    ]);
+  audio(String assetAudio) {
+    try {
+      assetsAudioPlayer.open(Audio(assetAudio));
+    } catch (e) {
 
-    await Wakelock.enable(); // keep device awake
+    }
   }
+
+  final List<Angka> listAngka =
+      List.generate(angka.length, (index) => Angka(angka[index], assetAudio[index]));
 
   @override
   void initState() {
-    setLandscape();
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    assetsAudioPlayer.dispose();
+    super.dispose();
   }
 
   @override
@@ -66,6 +82,7 @@ class _PAngkaPageState extends State<PAngkaPage> {
           physics: const NeverScrollableScrollPhysics(),
           onPageChanged: (int page) {},
           itemBuilder: (context, i) {
+            audio(listAngka[i].assetAudio);
             return Stack(
               children: [
                 buildBackground(size),

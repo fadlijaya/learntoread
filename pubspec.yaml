@@ -108,7 +108,6 @@ flutter:
     - assets/pengenalan-huruf/HURUF-X.png
     - assets/pengenalan-huruf/HURUF-Y.png
     - assets/pengenalan-huruf/HURUF-Z.png
-    - assets/pengenalan-angka/angka-0.png
     - assets/pengenalan-angka/angka-1.png
     - assets/pengenalan-angka/angka-2.png
     - assets/pengenalan-angka/angka-3.png
@@ -118,6 +117,7 @@ flutter:
     - assets/pengenalan-angka/angka-7.png
     - assets/pengenalan-angka/angka-8.png
     - assets/pengenalan-angka/angka-9.png
+    - assets/pengenalan-angka/angka-10.png
     - assets/pengenalan-warna/black.png
     - assets/pengenalan-warna/blue.png
     - assets/pengenalan-warna/chocolate.png
@@ -169,6 +169,92 @@ flutter:
     - assets/pengenalan-hijaiyyah/lam.png
     - assets/pengenalan-hijaiyyah/hamzah.png
     - assets/pengenalan-hijaiyyah/ya.png
+    - audio/pengenalan-huruf/a.mp3
+    - audio/pengenalan-huruf/b.mp3
+    - audio/pengenalan-huruf/c.mp3
+    - audio/pengenalan-huruf/d.mp3
+    - audio/pengenalan-huruf/e.mp3
+    - audio/pengenalan-huruf/f.mp3
+    - audio/pengenalan-huruf/g.mp3
+    - audio/pengenalan-huruf/h.mp3
+    - audio/pengenalan-huruf/i.mp3
+    - audio/pengenalan-huruf/j.mp3
+    - audio/pengenalan-huruf/k.mp3
+    - audio/pengenalan-huruf/l.mp3
+    - audio/pengenalan-huruf/m.mp3
+    - audio/pengenalan-huruf/n.mp3
+    - audio/pengenalan-huruf/o.mp3
+    - audio/pengenalan-huruf/p.mp3
+    - audio/pengenalan-huruf/q.mp3
+    - audio/pengenalan-huruf/r.mp3
+    - audio/pengenalan-huruf/s.mp3
+    - audio/pengenalan-huruf/t.mp3
+    - audio/pengenalan-huruf/u.mp3
+    - audio/pengenalan-huruf/v.mp3
+    - audio/pengenalan-huruf/w.mp3
+    - audio/pengenalan-huruf/x.mp3
+    - audio/pengenalan-huruf/y.mp3
+    - audio/pengenalan-huruf/z.mp3
+    - audio/pengenalan-angka/1.mp3
+    - audio/pengenalan-angka/2.mp3
+    - audio/pengenalan-angka/3.mp3
+    - audio/pengenalan-angka/4.mp3
+    - audio/pengenalan-angka/5.mp3
+    - audio/pengenalan-angka/6.mp3
+    - audio/pengenalan-angka/7.mp3
+    - audio/pengenalan-angka/8.mp3
+    - audio/pengenalan-angka/9.mp3
+    - audio/pengenalan-angka/10.mp3
+    - audio/pengenalan-warna/black.mp3
+    - audio/pengenalan-warna/blue.mp3
+    - audio/pengenalan-warna/chocolate.mp3
+    - audio/pengenalan-warna/pink.mp3
+    - audio/pengenalan-warna/green.mp3
+    - audio/pengenalan-warna/grey.mp3
+    - audio/pengenalan-warna/orange.mp3
+    - audio/pengenalan-warna/purple.mp3
+    - audio/pengenalan-warna/red.mp3
+    - audio/pengenalan-warna/white.mp3
+    - audio/pengenalan-warna/yellow.mp3
+    - audio/pengenalan-hewan/chicken.mp3
+    - audio/pengenalan-hewan/cow.mp3
+    - audio/pengenalan-hewan/crab.mp3
+    - audio/pengenalan-hewan/dog.mp3
+    - audio/pengenalan-hewan/dolphin.mp3
+    - audio/pengenalan-hewan/elephant.mp3
+    - audio/pengenalan-hewan/horse.mp3
+    - audio/pengenalan-hewan/lion.mp3
+    - audio/pengenalan-hewan/pig.mp3
+    - audio/pengenalan-hijaiyyah/alif.mp3
+    - audio/pengenalan-hijaiyyah/ba.mp3
+    - audio/pengenalan-hijaiyyah/ta.mp3
+    - audio/pengenalan-hijaiyyah/tsa.mp3
+    - audio/pengenalan-hijaiyyah/ja.mp3
+    - audio/pengenalan-hijaiyyah/ha.mp3
+    - audio/pengenalan-hijaiyyah/kha.mp3
+    - audio/pengenalan-hijaiyyah/da.mp3
+    - audio/pengenalan-hijaiyyah/dza.mp3
+    - audio/pengenalan-hijaiyyah/ra.mp3
+    - audio/pengenalan-hijaiyyah/za.mp3
+    - audio/pengenalan-hijaiyyah/sa.mp3
+    - audio/pengenalan-hijaiyyah/sya.mp3
+    - audio/pengenalan-hijaiyyah/sho.mp3
+    - audio/pengenalan-hijaiyyah/dho.mp3
+    - audio/pengenalan-hijaiyyah/tho.mp3
+    - audio/pengenalan-hijaiyyah/zho.mp3
+    - audio/pengenalan-hijaiyyah/ain.mp3
+    - audio/pengenalan-hijaiyyah/ghain.mp3
+    - audio/pengenalan-hijaiyyah/fa.mp3
+    - audio/pengenalan-hijaiyyah/qho.mp3
+    - audio/pengenalan-hijaiyyah/ka.mp3
+    - audio/pengenalan-hijaiyyah/la.mp3
+    - audio/pengenalan-hijaiyyah/mim.mp3
+    - audio/pengenalan-hijaiyyah/nun.mp3
+    - audio/pengenalan-hijaiyyah/wa.mp3
+    - audio/pengenalan-hijaiyyah/him.mp3
+    - audio/pengenalan-hijaiyyah/lam.mp3
+    - audio/pengenalan-hijaiyyah/hamzah.mp3
+    - audio/pengenalan-hijaiyyah/ya.mp3
     
     
 
