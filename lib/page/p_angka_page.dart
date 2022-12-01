@@ -88,7 +88,7 @@ class _PAngkaPageState extends State<PAngkaPage> {
                 buildBackground(size),
                 buildIconBack(),
                 buildTitlePage(),
-                buildItem(listAngka[i].nama)
+                buildItem(listAngka[i].image)
               ],
             );
           }),

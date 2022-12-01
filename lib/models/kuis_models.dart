@@ -1,50 +1,51 @@
 class Kuis {
   final String image;
+  final String audioQuestion;
   final String question;
   final bool answer;
-  Kuis(this.image, this.question, this.answer);
+  Kuis(this.image, this.audioQuestion, this.question, this.answer);
 }
 
 class KuisTebakGambar {
   int indexNumber = 0;
 
   final List<Kuis> kuisA = [
-    Kuis('assets/kuis/A.png', 'Huruf A', true),
-    Kuis('assets/kuis/1.png', 'Angka 2', false),
-    Kuis('assets/kuis/red.png', 'Coklat', false),
-    Kuis('assets/kuis/cat.png', 'Kucing', true),
-    Kuis('assets/kuis/alif.png', 'Hamzah', false),
-    Kuis('assets/kuis/blue.png', 'Ungu', false),
-    Kuis('assets/kuis/yellow.png', 'Merah', false),
-    Kuis('assets/kuis/elephant.png', 'Gajah', true),
-    Kuis('assets/kuis/sho.png', 'Sho', true),
-    Kuis('assets/kuis/orange.png', 'Hijau', false),
+    Kuis('assets/kuis/A.png', "audio/kuis/pertanyaan1.mp3", 'Huruf A', true, ),
+    Kuis('assets/kuis/1.png', "audio/kuis/pertanyaan2.mp3", 'Angka 2', false, ),
+    Kuis('assets/kuis/red.png', "audio/kuis/pertanyaan3.mp3", 'Coklat', false, ),
+    Kuis('assets/kuis/cat.png', "audio/kuis/pertanyaan4.mp3", 'Kucing', true, ),
+    Kuis('assets/kuis/alif.png', "audio/kuis/pertanyaan5.mp3", 'Hamzah', false, ),
+    Kuis('assets/kuis/blue.png', "audio/kuis/pertanyaan6.mp3", 'Ungu', false, ),
+    Kuis('assets/kuis/yellow.png', "audio/kuis/pertanyaan7.mp3", 'Merah', false, ),
+    Kuis('assets/kuis/elephant.png', "audio/kuis/pertanyaan8.mp3", 'Gajah', true, ),
+    Kuis('assets/kuis/sho.png', "audio/kuis/pertanyaan9.mp3", 'Sho', true, ),
+    Kuis('assets/kuis/orange.png', "audio/kuis/pertanyaan10.mp3", 'Hijau', false, ),
   ];
 
   final List<Kuis> kuisB = [
-    Kuis('assets/A.png', 'Huruf B', false),
-    Kuis('assets/1.png', 'Angka 1', true),
-    Kuis('assets/kuis/red.png', 'Biru', false),
-    Kuis('assets/kuis/cat.png', 'Anjing', false),
-    Kuis('assets/kuis/alif.png', 'Alif', true),
-    Kuis('assets/kuis/blue.png', 'Biru', true),
-    Kuis('assets/kuis/yellow.png', 'Kuning', true),
-    Kuis('assets/kuis/elephant.png', 'Kuda', false),
-    Kuis('assets/kuis/sho.png', 'Sa', false),
-    Kuis('assets/kuis/orange.png', 'Jingga', true),
+    Kuis('assets/A.png', "audio/kuis/pertanyaan1.mp3", 'Huruf B', false, ),
+    Kuis('assets/1.png', "audio/kuis/pertanyaan2.mp3", 'Angka 1', true, ),
+    Kuis('assets/kuis/red.png', "audio/kuis/pertanyaan3.mp3", 'Biru', false, ),
+    Kuis('assets/kuis/cat.png', "audio/kuis/pertanyaan4.mp3", 'Anjing', false, ),
+    Kuis('assets/kuis/alif.png', "audio/kuis/pertanyaan5.mp3", 'Alif', true, ),
+    Kuis('assets/kuis/blue.png', "audio/kuis/pertanyaan6.mp3", 'Biru', true, ),
+    Kuis('assets/kuis/yellow.png', "audio/kuis/pertanyaan7.mp3", 'Kuning', true, ),
+    Kuis('assets/kuis/elephant.png', "audio/kuis/pertanyaan8.mp3", 'Kuda', false, ),
+    Kuis('assets/kuis/sho.png', "audio/kuis/pertanyaan9.mp3", 'Sa', false, ),
+    Kuis('assets/kuis/orange.png', "audio/kuis/pertanyaan10.mp3", 'Jingga', true, ),
   ];
 
   final List<Kuis> kuisC = [
-    Kuis('assets/A.png', 'Huruf C', false),
-    Kuis('assets/1.png', 'Angka 3', false),
-    Kuis('assets/kuis/red.png', 'Merah', true),
-    Kuis('assets/kuis/cat.png', 'Singa', false),
-    Kuis('assets/kuis/alif.png', 'Lam', false),
-    Kuis('assets/kuis/blue.png', 'Hitam', false),
-    Kuis('assets/kuis/yellow.png', 'Biru', false),
-    Kuis('assets/kuis/elephant.png', 'Babi', false),
-    Kuis('assets/kuis/sho.png', 'Sya', false),
-    Kuis('assets/kuis/orange.png', 'Kuning', false),
+    Kuis('assets/A.png', "audio/kuis/pertanyaan1.mp3", 'Huruf C', false, ),
+    Kuis('assets/1.png', "audio/kuis/pertanyaan2.mp3", 'Angka 3', false, ),
+    Kuis('assets/kuis/red.png', "audio/kuis/pertanyaan3.mp3", 'Merah', true, ),
+    Kuis('assets/kuis/cat.png', "audio/kuis/pertanyaan4.mp3", 'Singa', false, ),
+    Kuis('assets/kuis/alif.png', "audio/kuis/pertanyaan5.mp3", 'Lam', false, ),
+    Kuis('assets/kuis/blue.png', "audio/kuis/pertanyaan6.mp3", 'Hitam', false, ),
+    Kuis('assets/kuis/yellow.png', "audio/kuis/pertanyaan7.mp3", 'Biru', false, ),
+    Kuis('assets/kuis/elephant.png', "audio/kuis/pertanyaan8.mp3", 'Babi', false, ),
+    Kuis('assets/kuis/sho.png', "audio/kuis/pertanyaan9.mp3", 'Sya', false, ),
+    Kuis('assets/kuis/orange.png', "audio/kuis/pertanyaan10.mp3", 'Kuning', false, ),
   ];
 
   nextQuestion() {
@@ -55,6 +56,10 @@ class KuisTebakGambar {
 
   String getImage() {
     return kuisA[indexNumber].image;
+  }
+
+  String getAudioQuestion() {
+    return kuisA[indexNumber].audioQuestion;
   }
 
   String getQuestion1() {

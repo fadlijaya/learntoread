@@ -21,39 +21,6 @@ class _PHijaiyahPageState extends State<PHijaiyahPage> {
 
   List<Hijaiyah>? hijaiyahList;
 
-  static List<String> nama = [
-    'Alif',
-    'Ba',
-    'Ta',
-    'Tsa',
-    'Jim',
-    'Ha',
-    'Kho',
-    'Dal',
-    'Dzal',
-    'Ro',
-    'Za',
-    'Sin',
-    'Syin',
-    'Shod',
-    'Dho',
-    'Tho',
-    'Dzo',
-    'Ain',
-    'Ghain',
-    'Fa',
-    'Qof',
-    'Kaf',
-    'Lam',
-    'Mim',
-    'Nun',
-    'Wa',
-    'Hha',
-    'Lam Alif',
-    'Hamzah',
-    'Ya'
-  ];
-
   static List<String> image = [
     'assets/pengenalan-hijaiyyah/alif.png',
     'assets/pengenalan-hijaiyyah/ba.png',
@@ -129,7 +96,7 @@ class _PHijaiyahPageState extends State<PHijaiyahPage> {
   }
 
   final List<Hijaiyah> listHijaiyah = List.generate(
-      nama.length, (index) => Hijaiyah(nama[index], image[index], assetAudio[index]));
+      image.length, (index) => Hijaiyah(image[index], assetAudio[index]));
 
   @override
   void initState() {
@@ -161,7 +128,7 @@ class _PHijaiyahPageState extends State<PHijaiyahPage> {
                 buildBackground(size),
                 buildIconBack(),
                 buildTitlePage(),
-                buildItem(listHijaiyah[i].nama, listHijaiyah[i].image)
+                buildItem(listHijaiyah[i].image)
               ],
             );
           }),
@@ -214,7 +181,7 @@ class _PHijaiyahPageState extends State<PHijaiyahPage> {
                 ))));
   }
 
-  Widget buildItem(String nama, String image) {
+  Widget buildItem(String image) {
     return Positioned.fill(
       left: 40,
       top: 80,

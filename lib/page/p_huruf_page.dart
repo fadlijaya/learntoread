@@ -120,7 +120,7 @@ class _PHurufPageState extends State<PHurufPage> {
                 buildBackground(size),
                 buildIconBack(),
                 buildTitlePage(),
-                buildItem(listHuruf[i].nama)
+                buildItem(listHuruf[i].image)
               ],
             );
           }),

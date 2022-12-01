@@ -26,6 +26,7 @@ class _KuisPageState extends State<KuisPage> {
   int maxSeconds = 120;
   int skor = 0;
   double rating = 0;
+  bool isPlaying = true;
 
   cekJawaban(bool userPilihJawaban) {
     bool jawabanBenar1 = kuisTebakGambar.getAnswer1();
@@ -53,6 +54,7 @@ class _KuisPageState extends State<KuisPage> {
               toastLength: Toast.LENGTH_SHORT,
               gravity: ToastGravity.CENTER,
               backgroundColor: Colors.green);
+          assetsAudioPlayer.open(Audio("audio/kuis/benar.mp3"));
           setState(() {
             skor = skor + 10;
             rating = rating + 0.5;
@@ -64,6 +66,7 @@ class _KuisPageState extends State<KuisPage> {
               toastLength: Toast.LENGTH_SHORT,
               gravity: ToastGravity.CENTER,
               backgroundColor: Colors.red);
+          assetsAudioPlayer.open(Audio("audio/kuis/salah.mp3"));
           if (skor == 0) {
             setState(() {
               skor = skor - 0;
@@ -83,6 +86,12 @@ class _KuisPageState extends State<KuisPage> {
   }
 
   endQuiz() {
+    assetsAudioPlayer.open(
+      Audio("audio/congrats.mp3"),
+      loopMode: LoopMode.single,
+      showNotification: false,
+    );
+
     showDialog(
         barrierDismissible: false,
         context: context,
@@ -340,30 +349,37 @@ class _KuisPageState extends State<KuisPage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Card(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8)),
-                      elevation: 7,
-                      shadowColor: Colors.black,
-                      margin: const EdgeInsets.only(bottom: 16),
-                      child: Container(
-                        padding: const EdgeInsets.all(8),
-                        child: Image.asset(
-                          kuisTebakGambar.getImage(),
-                          width: 160,
-                          height: 160,
+                    AudioWidget.assets(
+                      play: isPlaying,
+                      path: kuisTebakGambar.getAudioQuestion(),
+                      child: Card(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8)),
+                        elevation: 7,
+                        shadowColor: Colors.black,
+                        margin: const EdgeInsets.only(bottom: 16),
+                        child: Container(
+                          padding: const EdgeInsets.all(8),
+                          child: Image.asset(
+                            kuisTebakGambar.getImage(),
+                            width: 160,
+                            height: 160,
+                          ),
                         ),
                       ),
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        checkingAnswer(kuisTebakGambar.getQuestion1(),
-                            kuisTebakGambar.getAnswer1()),
-                        checkingAnswer(kuisTebakGambar.getQuestion2(),
-                            kuisTebakGambar.getAnswer2()),
-                        checkingAnswer(kuisTebakGambar.getQuestion3(),
-                            kuisTebakGambar.getAnswer3()),
+                        checkingAnswer(
+                            kuisTebakGambar.getQuestion1(),
+                            kuisTebakGambar.getAnswer1(),),
+                        checkingAnswer(
+                            kuisTebakGambar.getQuestion2(),
+                            kuisTebakGambar.getAnswer2(),),
+                        checkingAnswer(
+                            kuisTebakGambar.getQuestion3(),
+                            kuisTebakGambar.getAnswer3(),),
                       ],
                     ),
                   ],
@@ -380,7 +396,7 @@ class _KuisPageState extends State<KuisPage> {
     return Card(
       shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(8),
-          side: BorderSide(color: Colors.yellow, width: 3)),
+          side: const BorderSide(color: Colors.yellow, width: 3)),
       color: Colors.orange,
       elevation: 7,
       shadowColor: Colors.black,

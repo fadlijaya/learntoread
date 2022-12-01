@@ -1,6 +1,6 @@
 class Angka {
-  final String nama;
+  final String image;
   final String assetAudio; 
 
-  Angka(this.nama, this.assetAudio);
+  Angka(this.image, this.assetAudio);
 }

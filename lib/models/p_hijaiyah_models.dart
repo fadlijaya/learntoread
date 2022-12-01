@@ -1,7 +1,6 @@
 class Hijaiyah {
-  final String nama;
   final String image;
   final String assetAudio;
 
-  Hijaiyah(this.nama, this.image, this.assetAudio);
+  Hijaiyah(this.image, this.assetAudio);
 }

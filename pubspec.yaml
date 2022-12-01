@@ -129,6 +129,7 @@ flutter:
     - assets/pengenalan-warna/red.png
     - assets/pengenalan-warna/white.png
     - assets/pengenalan-warna/yellow.png
+    - assets/pengenalan-hewan/duck.png
     - assets/pengenalan-hewan/cat.png
     - assets/pengenalan-hewan/chicken.png
     - assets/pengenalan-hewan/cow.png
@@ -216,6 +217,7 @@ flutter:
     - audio/pengenalan-warna/red.mp3
     - audio/pengenalan-warna/white.mp3
     - audio/pengenalan-warna/yellow.mp3
+    - audio/pengenalan-hewan/duck.mp3
     - audio/pengenalan-hewan/chicken.mp3
     - audio/pengenalan-hewan/cow.mp3
     - audio/pengenalan-hewan/crab.mp3
@@ -255,6 +257,18 @@ flutter:
     - audio/pengenalan-hijaiyyah/lam.mp3
     - audio/pengenalan-hijaiyyah/hamzah.mp3
     - audio/pengenalan-hijaiyyah/ya.mp3
+    - audio/kuis/pertanyaan1.mp3
+    - audio/kuis/pertanyaan2.mp3
+    - audio/kuis/pertanyaan3.mp3
+    - audio/kuis/pertanyaan4.mp3
+    - audio/kuis/pertanyaan5.mp3
+    - audio/kuis/pertanyaan6.mp3
+    - audio/kuis/pertanyaan7.mp3
+    - audio/kuis/pertanyaan8.mp3
+    - audio/kuis/pertanyaan9.mp3
+    - audio/kuis/pertanyaan10.mp3
+    - audio/kuis/benar.mp3
+    - audio/kuis/salah.mp3
     
     
 

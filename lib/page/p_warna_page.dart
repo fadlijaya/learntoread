@@ -21,20 +21,6 @@ class _PWarnaPageState extends State<PWarnaPage> {
 
   List<Warna>? warnaList;
 
-  static List<String> warna = [
-    'Warna Kuning',
-    'Warna Hitam',
-    'Warna Biru',
-    'Warna Coklat',
-    'Warna Pink',
-    'Warna Hijau',
-    'Warna Abu-abu',
-    'Warna Jingga',
-    'Warna Ungu',
-    'Warna Merah',
-    'Warna Putih'
-  ];
-
   static List<String> image = [
     'assets/pengenalan-warna/yellow.png',
     'assets/pengenalan-warna/black.png',
@@ -42,7 +28,6 @@ class _PWarnaPageState extends State<PWarnaPage> {
     'assets/pengenalan-warna/chocolate.png',
     'assets/pengenalan-warna/pink.png',
     'assets/pengenalan-warna/green.png',
-    'assets/pengenalan-warna/grey.png',
     'assets/pengenalan-warna/orange.png',
     'assets/pengenalan-warna/purple.png',
     'assets/pengenalan-warna/red.png',
@@ -56,7 +41,6 @@ class _PWarnaPageState extends State<PWarnaPage> {
     'audio/pengenalan-warna/chocolate.mp3',
     'audio/pengenalan-warna/pink.mp3',
     'audio/pengenalan-warna/green.mp3',
-    'audio/pengenalan-warna/grey.mp3',
     'audio/pengenalan-warna/orange.mp3',
     'audio/pengenalan-warna/purple.mp3',
     'audio/pengenalan-warna/red.mp3',
@@ -72,7 +56,7 @@ class _PWarnaPageState extends State<PWarnaPage> {
   }
 
   final List<Warna> listWarna =
-      List.generate(warna.length, (index) => Warna(warna[index], image[index], assetAudio[index]));
+      List.generate(image.length, (index) => Warna(image[index], assetAudio[index]));
 
   @override
   void initState() {
@@ -104,7 +88,7 @@ class _PWarnaPageState extends State<PWarnaPage> {
                 buildBackground(size),
                 buildIconBack(),
                 buildTitlePage(),
-                buildItem(listWarna[i].nama, listWarna[i].image)
+                buildItem(listWarna[i].image)
               ],
             );
           }),
@@ -157,7 +141,7 @@ class _PWarnaPageState extends State<PWarnaPage> {
                 ))));
   }
 
-  Widget buildItem(String nama, String image) {
+  Widget buildItem(String image) {
     return Positioned.fill(
       left: 40,
       top: 80,

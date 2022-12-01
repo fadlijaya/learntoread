@@ -1,6 +1,6 @@
 class Huruf {
-  final String nama;
+  final String image;
   final String assetAudio;
 
-  Huruf(this.nama, this.assetAudio);
+  Huruf(this.image, this.assetAudio);
 }

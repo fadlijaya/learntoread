@@ -22,20 +22,8 @@ class _PHewanPageState extends State<PHewanPage> {
 
   List<Hewan>? hewanList;
 
-  static List<String> hewan = [
-    'Kucing',
-    'Ayam',
-    'Sapi',
-    'Kepiting',
-    'Anjing',
-    'Lumba-lumba',
-    'Gajah',
-    'Kuda',
-    'Singa',
-    'Babi',
-  ];
-
   static List<String> image = [
+    'assets/pengenalan-hewan/duck.png',
     'assets/pengenalan-hewan/chicken.png',
     'assets/pengenalan-hewan/cow.png',
     'assets/pengenalan-hewan/crab.png',
@@ -48,6 +36,7 @@ class _PHewanPageState extends State<PHewanPage> {
   ];
 
    static List<String> assetAudio = [
+    "audio/pengenalan-hewan/duck.mp3",
     "audio/pengenalan-hewan/chicken.mp3",
     "audio/pengenalan-hewan/cow.mp3",
     "audio/pengenalan-hewan/crab.mp3",
@@ -69,7 +58,7 @@ class _PHewanPageState extends State<PHewanPage> {
 
 
   final List<Hewan> listHewan =
-      List.generate(hewan.length, (index) => Hewan(hewan[index], image[index], assetAudio[index]));
+      List.generate(image.length, (index) => Hewan(image[index], assetAudio[index]));
 
 
   @override
@@ -102,7 +91,7 @@ class _PHewanPageState extends State<PHewanPage> {
                 buildBackground(size),
                 buildIconBack(),
                 buildTitlePage(),
-                buildItem(listHewan[i].nama, listHewan[i].image)
+                buildItem(listHewan[i].image)
               ],
             );
           }),
@@ -155,7 +144,7 @@ class _PHewanPageState extends State<PHewanPage> {
                 ))));
   }
 
-  Widget buildItem(String nama, String image) {
+  Widget buildItem(String image) {
     return Positioned.fill(
       left: 40,
       top: 80,
