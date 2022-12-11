@@ -1,4 +1,4 @@
-package com.example.learntoread
+package com.fourcorecreative.edukids
 
 import io.flutter.embedding.android.FlutterActivity
 
