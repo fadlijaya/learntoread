@@ -19,8 +19,8 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        '/menu': (_) => MenuPage(),
-        '/kuis': (_) => KuisPage()
+        '/menu': (_) => const MenuPage(),
+        '/kuis': (_) => const KuisPage()
       },
       home: const MenuPage(),
     );

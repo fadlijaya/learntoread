@@ -29,9 +29,9 @@ class _KuisPageState extends State<KuisPage> {
   bool isPlaying = true;
 
   cekJawaban(bool userPilihJawaban) {
-    bool jawabanBenar1 = kuisTebakGambar.getAnswer1();
-    bool jawabanBenar2 = kuisTebakGambar.getAnswer2();
-    bool jawabanBenar3 = kuisTebakGambar.getAnswer3();
+    //bool jawabanBenar1 = kuisTebakGambar.getAnswer1();
+    //bool jawabanBenar2 = kuisTebakGambar.getAnswer2();
+    //bool jawabanBenar3 = kuisTebakGambar.getAnswer3();
     setState(() {
       if (kuisTebakGambar.isFinished() == true) {
         Future.delayed(const Duration(seconds: 1), () {
@@ -45,9 +45,7 @@ class _KuisPageState extends State<KuisPage> {
         stopTimer();
         kuisTebakGambar.reset();
       } else {
-        if (userPilihJawaban == jawabanBenar1 ||
-            jawabanBenar2 ||
-            jawabanBenar3) {
+        if (userPilihJawaban == true) {
           Fluttertoast.showToast(
               msg: 'Benar',
               fontSize: 24.0,
