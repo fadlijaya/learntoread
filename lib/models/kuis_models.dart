@@ -49,7 +49,7 @@ class KuisTebakGambar {
   ];
 
   nextQuestion() {
-    if (indexNumber <= kuisA.length) {
+    if (indexNumber < kuisA.length) {
       indexNumber++;
     }
   }
@@ -87,7 +87,7 @@ class KuisTebakGambar {
   }
 
   bool isFinished() {
-    if (indexNumber >= kuisA.length - 1) {
+    if (indexNumber == kuisA.length -1) {
       return true;
     } else {
       return false;

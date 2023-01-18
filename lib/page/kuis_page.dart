@@ -33,17 +33,57 @@ class _KuisPageState extends State<KuisPage> {
     //bool jawabanBenar2 = kuisTebakGambar.getAnswer2();
     //bool jawabanBenar3 = kuisTebakGambar.getAnswer3();
     setState(() {
+      if (userPilihJawaban == true) {
+        Fluttertoast.showToast(
+            msg: 'Benar',
+            fontSize: 24.0,
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.CENTER,
+            backgroundColor: Colors.green);
+        assetsAudioPlayer.open(Audio("audio/kuis/benar.mp3"));
+        setState(() {
+          skor = skor + 10;
+          rating = rating + 0.5;
+        });
+      } else {
+        Fluttertoast.showToast(
+            msg: 'Salah',
+            fontSize: 24.0,
+            toastLength: Toast.LENGTH_SHORT,
+            gravity: ToastGravity.CENTER,
+            backgroundColor: Colors.red);
+        assetsAudioPlayer.open(Audio("audio/kuis/salah.mp3"));
+        if (skor == 0) {
+          setState(() {
+            skor = skor - 0;
+          });
+        } else {
+          setState(() {
+            skor = skor - 5;
+            rating = rating - 0.25;
+          });
+        }
+      }
+
+      if (kuisTebakGambar.isFinished() == true) {
+        Future.delayed(const Duration(seconds: 2), () {
+          endQuiz();
+          stopTimer();
+          kuisTebakGambar.reset();
+        });
+      } else {
+        Future.delayed(
+            const Duration(seconds: 1), () => kuisTebakGambar.nextQuestion());
+      }
+    });
+
+    /*setState(() {
       if (kuisTebakGambar.isFinished() == true) {
         Future.delayed(const Duration(seconds: 1), () {
-          assetsAudioPlayer.open(
-            Audio("audio/congrats.mp3"),
-            loopMode: LoopMode.single,
-            showNotification: false,
-          );
           endQuiz();
+          stopTimer();
+          kuisTebakGambar.reset();
         });
-        stopTimer();
-        kuisTebakGambar.reset();
       } else {
         if (userPilihJawaban == true) {
           Fluttertoast.showToast(
@@ -80,7 +120,7 @@ class _KuisPageState extends State<KuisPage> {
         Future.delayed(
             const Duration(seconds: 1), () => kuisTebakGambar.nextQuestion());
       }
-    });
+    });*/
   }
 
   endQuiz() {
@@ -370,14 +410,17 @@ class _KuisPageState extends State<KuisPage> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         checkingAnswer(
-                            kuisTebakGambar.getQuestion1(),
-                            kuisTebakGambar.getAnswer1(),),
+                          kuisTebakGambar.getQuestion1(),
+                          kuisTebakGambar.getAnswer1(),
+                        ),
                         checkingAnswer(
-                            kuisTebakGambar.getQuestion2(),
-                            kuisTebakGambar.getAnswer2(),),
+                          kuisTebakGambar.getQuestion2(),
+                          kuisTebakGambar.getAnswer2(),
+                        ),
                         checkingAnswer(
-                            kuisTebakGambar.getQuestion3(),
-                            kuisTebakGambar.getAnswer3(),),
+                          kuisTebakGambar.getQuestion3(),
+                          kuisTebakGambar.getAnswer3(),
+                        ),
                       ],
                     ),
                   ],
