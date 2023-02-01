@@ -21,7 +21,7 @@ class MenuPage extends StatefulWidget {
 class _MenuPageState extends State<MenuPage> {
   AssetsAudioPlayer assetsAudioPlayer = AssetsAudioPlayer();
   bool _isPlaying = true;
-
+  String? textAbout;
   Future setLandscape() async {
     // hide overlays statusbar
     // ignore: deprecated_member_use
@@ -32,6 +32,13 @@ class _MenuPageState extends State<MenuPage> {
     ]);
 
     await Wakelock.enable(); // keep device awake
+  }
+
+  Future<void> loadFileAbout() async {
+    final data = await rootBundle.loadString('file/tentang.txt');
+    setState(() {
+      textAbout = data;
+    });
   }
 
   @override
@@ -58,6 +65,7 @@ class _MenuPageState extends State<MenuPage> {
             buildBackground(),
             buildTitlePage(),
             buildAudio(),
+            buildIconAbout(),
             buildIconExit(),
             buildItem()
           ],
@@ -82,14 +90,15 @@ class _MenuPageState extends State<MenuPage> {
         bottom: 0,
         child: Text(
           titleApp.toUpperCase(),
-          style: const TextStyle(fontSize: 48, fontFamily: 'Kid Games', color: Colors.green),
+          style: const TextStyle(
+              fontSize: 48, fontFamily: 'Kid Games', color: Colors.green),
         ));
   }
 
   Widget buildAudio() {
     return Positioned(
         top: 24,
-        right: 90,
+        right: 80,
         child: AudioWidget.assets(
             play: _isPlaying,
             path: "audio/backsound.mp3",
@@ -105,6 +114,41 @@ class _MenuPageState extends State<MenuPage> {
               ),
             )));
   }
+
+  Widget buildIconAbout() {
+    return Positioned(
+        top: 24,
+        right: 140,
+        child: GestureDetector(
+          onTap: () {
+            aboutDialog();
+            setState(() {
+              loadFileAbout();
+            });
+          },
+          child: Image.asset(
+            "assets/about.png",
+            width: 40,
+          ),
+        ));
+  }
+
+  aboutDialog() => showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (_) {
+        return AlertDialog(
+          scrollable: true,
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text(textTentang),
+              IconButton(onPressed: () => Navigator.pop(context), icon: const Icon(Icons.close, color: Colors.grey,))
+            ],
+          ),
+          content: Text(textAbout ?? ""),
+        );
+      });
 
   Widget buildIconExit() {
     return Positioned(
@@ -136,8 +180,10 @@ class _MenuPageState extends State<MenuPage> {
                 setState(() {
                   _isPlaying = false;
                 });
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const PHurufPage()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const PHurufPage()));
               },
               child: Card(
                 shape: RoundedRectangleBorder(
@@ -155,9 +201,16 @@ class _MenuPageState extends State<MenuPage> {
                         "assets/icon1.png",
                         width: 120,
                       ),
-                      Flexible(child: Padding(
+                      Flexible(
+                          child: Padding(
                         padding: const EdgeInsets.only(right: 4),
-                        child: Text(titleItem1.toUpperCase(), style: TextStyle(color: Colors.white, fontFamily: 'Kid Games', fontSize: 12),),
+                        child: Text(
+                          titleItem1.toUpperCase(),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'Kid Games',
+                              fontSize: 12),
+                        ),
                       ))
                     ],
                   ),
@@ -169,13 +222,14 @@ class _MenuPageState extends State<MenuPage> {
                 setState(() {
                   _isPlaying = false;
                 });
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const PAngkaPage())); 
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const PAngkaPage()));
               },
               child: Card(
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8)
-                ),
+                    borderRadius: BorderRadius.circular(8)),
                 color: Colors.yellow,
                 elevation: 7,
                 shadowColor: Colors.black,
@@ -188,9 +242,16 @@ class _MenuPageState extends State<MenuPage> {
                         "assets/icon2.png",
                         width: 90,
                       ),
-                       Flexible(child: Padding(
+                      Flexible(
+                          child: Padding(
                         padding: const EdgeInsets.only(right: 4),
-                        child: Text(titleItem2.toUpperCase(), style: TextStyle(color: Colors.orange, fontFamily: 'Kid Games', fontSize: 12),),
+                        child: Text(
+                          titleItem2.toUpperCase(),
+                          style: TextStyle(
+                              color: Colors.orange,
+                              fontFamily: 'Kid Games',
+                              fontSize: 12),
+                        ),
                       ))
                     ],
                   ),
@@ -200,15 +261,16 @@ class _MenuPageState extends State<MenuPage> {
             GestureDetector(
               onTap: () {
                 setState(() {
-                 _isPlaying = false;
+                  _isPlaying = false;
                 });
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const PWarnaPage()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const PWarnaPage()));
               },
               child: Card(
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8)
-                ),
+                    borderRadius: BorderRadius.circular(8)),
                 color: Colors.green,
                 elevation: 7,
                 shadowColor: Colors.black,
@@ -221,9 +283,16 @@ class _MenuPageState extends State<MenuPage> {
                         "assets/icon3.png",
                         width: 112,
                       ),
-                      Flexible(child: Padding(
+                      Flexible(
+                          child: Padding(
                         padding: const EdgeInsets.only(right: 4),
-                        child: Text(titleItem3.toUpperCase(), style: TextStyle(color: Colors.white, fontFamily: 'Kid Games', fontSize: 12),),
+                        child: Text(
+                          titleItem3.toUpperCase(),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'Kid Games',
+                              fontSize: 12),
+                        ),
                       ))
                     ],
                   ),
@@ -235,13 +304,14 @@ class _MenuPageState extends State<MenuPage> {
                 setState(() {
                   _isPlaying = false;
                 });
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const PHewanPage()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const PHewanPage()));
               },
               child: Card(
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8)
-                ),
+                    borderRadius: BorderRadius.circular(8)),
                 color: Colors.blue,
                 elevation: 7,
                 shadowColor: Colors.black,
@@ -254,7 +324,14 @@ class _MenuPageState extends State<MenuPage> {
                         "assets/icon4.png",
                         width: 90,
                       ),
-                      Flexible(child: Text(titleItem4.toUpperCase(), style: TextStyle(color: Colors.white, fontFamily: 'Kid Games', fontSize: 12),))
+                      Flexible(
+                          child: Text(
+                        titleItem4.toUpperCase(),
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: 'Kid Games',
+                            fontSize: 12),
+                      ))
                     ],
                   ),
                 ),
@@ -265,13 +342,14 @@ class _MenuPageState extends State<MenuPage> {
                 setState(() {
                   _isPlaying = false;
                 });
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const PHijaiyahPage()));
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const PHijaiyahPage()));
               },
               child: Card(
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8)
-                ),
+                    borderRadius: BorderRadius.circular(8)),
                 color: Colors.pink,
                 elevation: 7,
                 shadowColor: Colors.black,
@@ -284,9 +362,16 @@ class _MenuPageState extends State<MenuPage> {
                         "assets/icon5.png",
                         width: 80,
                       ),
-                      Flexible(child: Padding(
+                      Flexible(
+                          child: Padding(
                         padding: const EdgeInsets.only(right: 4),
-                        child: Text(titleItem5.toUpperCase(), style: TextStyle(color: Colors.white, fontFamily: 'Kid Games', fontSize: 12),),
+                        child: Text(
+                          titleItem5.toUpperCase(),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'Kid Games',
+                              fontSize: 12),
+                        ),
                       ))
                     ],
                   ),
@@ -303,10 +388,9 @@ class _MenuPageState extends State<MenuPage> {
               },
               child: Card(
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8)
-                ),
+                    borderRadius: BorderRadius.circular(8)),
                 color: Colors.orange,
-                elevation: 7, 
+                elevation: 7,
                 shadowColor: Colors.black,
                 child: Container(
                   padding: const EdgeInsets.all(8),
@@ -320,9 +404,16 @@ class _MenuPageState extends State<MenuPage> {
                         "assets/icon6.png",
                         width: 60,
                       ),
-                      Flexible(child: Padding(
+                      Flexible(
+                          child: Padding(
                         padding: const EdgeInsets.only(right: 4),
-                        child: Text(titleItem6.toUpperCase(), style: TextStyle(color: Colors.white, fontFamily: 'Kid Games', fontSize: 12),),
+                        child: Text(
+                          titleItem6.toUpperCase(),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontFamily: 'Kid Games',
+                              fontSize: 12),
+                        ),
                       ))
                     ],
                   ),

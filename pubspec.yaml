@@ -2,7 +2,7 @@ name: learntoread
 description: A new Flutter project.
 publish_to: 'none'
 
-version: 1.0.1+2
+version: 1.0.2+3
 
 environment:
   sdk: '>=2.18.4 <3.0.0'
@@ -51,6 +51,7 @@ flutter:
         - asset: fonts/KidGames.ttf
 
   assets:
+    - file/tentang.txt
     - audio/backsound.mp3
     - audio/congrats.mp3
     - assets/backgrounds.jpg
@@ -78,6 +79,7 @@ flutter:
     - assets/accept.png
     - assets/timer.png
     - assets/log-out.png
+    - assets/about.png
     - assets/back.png
     - assets/next.png
     - assets/previous.png

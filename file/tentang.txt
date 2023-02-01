@@ -1,0 +1,14 @@
+Nama Aplikasi
+
+Edu Kids adalah aplikasi pembelajaran anak usia dini berbasis
+android yang dirancang untuk meningkatkan minat belajar anak 
+usia dini dengan aplikasi interaktif yang menarik dan mudah
+dipahami oleh anak usia dini.
+
+Penyusun
+
+Nama : Farid Nashrullah
+NIM : 60900116083
+Jurusan : Sistem Informasi
+Fakultas : Sains dan Teknologi
+Kampus : Universitas Islam Negeri Alauddin Makassar

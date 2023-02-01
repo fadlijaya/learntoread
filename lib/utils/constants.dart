@@ -1,4 +1,5 @@
 const String titleApp = "Edu Kids";
+const String textTentang = "Tentang";
 const String backgroundsMenu = "assets/backgrounds.jpg";
 const String backgroundsItemPage = "assets/backgrounds-item-page.jpg";
 const String backgroundsKuisPage = "assets/backgrounds-kuis.jpg";
