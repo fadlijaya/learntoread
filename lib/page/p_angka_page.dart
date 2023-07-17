@@ -1,7 +1,5 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:wakelock/wakelock.dart';
 
 import '../models/p_angka_models.dart';
 import '../utils/constants.dart';
@@ -51,7 +49,7 @@ class _PAngkaPageState extends State<PAngkaPage> {
     try {
       assetsAudioPlayer.open(Audio(assetAudio));
     } catch (e) {
-
+      print(e);
     }
   }
 

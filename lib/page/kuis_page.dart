@@ -390,38 +390,23 @@ class _KuisPageState extends State<KuisPage> {
                     AudioWidget.assets(
                       play: isPlaying,
                       path: kuisTebakGambar.getAudioQuestion(),
-                      child: Card(
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(8)),
-                        elevation: 7,
-                        shadowColor: Colors.black,
-                        margin: const EdgeInsets.only(bottom: 16),
-                        child: Container(
-                          padding: const EdgeInsets.all(8),
-                          child: Image.asset(
-                            kuisTebakGambar.getImage(),
-                            width: 160,
-                            height: 160,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          checkingAnswer(
+                            kuisTebakGambar.getQuestion1(),
+                            kuisTebakGambar.getAnswer1(),
                           ),
-                        ),
+                          checkingAnswer(
+                            kuisTebakGambar.getQuestion2(),
+                            kuisTebakGambar.getAnswer2(),
+                          ),
+                          checkingAnswer(
+                            kuisTebakGambar.getQuestion3(),
+                            kuisTebakGambar.getAnswer3(),
+                          ),
+                        ],
                       ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        checkingAnswer(
-                          kuisTebakGambar.getQuestion1(),
-                          kuisTebakGambar.getAnswer1(),
-                        ),
-                        checkingAnswer(
-                          kuisTebakGambar.getQuestion2(),
-                          kuisTebakGambar.getAnswer2(),
-                        ),
-                        checkingAnswer(
-                          kuisTebakGambar.getQuestion3(),
-                          kuisTebakGambar.getAnswer3(),
-                        ),
-                      ],
                     ),
                   ],
                 ),
@@ -434,22 +419,8 @@ class _KuisPageState extends State<KuisPage> {
   }
 
   Widget checkingAnswer(String correctOrWrong, bool trueOrFalse) {
-    return Card(
-      shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
-          side: const BorderSide(color: Colors.yellow, width: 3)),
-      color: Colors.orange,
-      elevation: 7,
-      shadowColor: Colors.black,
-      child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-        child: TextButton(
-            onPressed: () => cekJawaban(trueOrFalse),
-            child: Text(
-              correctOrWrong,
-              style: const TextStyle(color: Colors.white, fontSize: 20),
-            )),
-      ),
-    );
+    return TextButton(
+        onPressed: () => cekJawaban(trueOrFalse),
+        child: Image.asset(correctOrWrong, width: 160,));
   }
 }

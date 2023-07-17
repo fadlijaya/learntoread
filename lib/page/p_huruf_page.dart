@@ -1,8 +1,6 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:learntoread/models/p_huruf_models.dart';
-import 'package:wakelock/wakelock.dart';
 
 import '../utils/constants.dart';
 
@@ -86,7 +84,7 @@ class _PHurufPageState extends State<PHurufPage> {
     try {
       assetsAudioPlayer.open(Audio(assetAudio));
     } catch (e) {
-
+      print(e);
     }
   }
 

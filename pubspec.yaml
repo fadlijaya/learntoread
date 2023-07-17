@@ -63,16 +63,6 @@ flutter:
     - assets/icon4.png
     - assets/icon5.png
     - assets/icon6.png
-    - assets/kuis/A.png
-    - assets/kuis/1.png
-    - assets/kuis/red.png
-    - assets/kuis/cat.png
-    - assets/kuis/alif.png
-    - assets/kuis/blue.png
-    - assets/kuis/yellow.png
-    - assets/kuis/elephant.png
-    - assets/kuis/sho.png
-    - assets/kuis/orange.png
     - assets/frame-kuis.svg
     - assets/button-menu.svg
     - assets/button-ulangi.svg
@@ -138,11 +128,23 @@ flutter:
     - assets/pengenalan-hewan/cow.png
     - assets/pengenalan-hewan/crab.png
     - assets/pengenalan-hewan/dog.png
-    - assets/pengenalan-hewan/dolphin.png
     - assets/pengenalan-hewan/elephant.png
     - assets/pengenalan-hewan/horse.png
     - assets/pengenalan-hewan/lion.png
     - assets/pengenalan-hewan/pig.png
+    - assets/pengenalan-hewan/domba.png
+    - assets/pengenalan-hewan/ikan-hiu.png
+    - assets/pengenalan-hewan/ikan-pari.png
+    - assets/pengenalan-hewan/ikan-paus.png
+    - assets/pengenalan-hewan/kambing.png
+    - assets/pengenalan-hewan/keledai.png
+    - assets/pengenalan-hewan/kelinci.png
+    - assets/pengenalan-hewan/kerbau.png
+    - assets/pengenalan-hewan/kucing.png
+    - assets/pengenalan-hewan/lumba-lumba.png
+    - assets/pengenalan-hewan/merpati.png
+    - assets/pengenalan-hewan/tikus.png
+    - assets/pengenalan-hewan/ular.png
     - assets/pengenalan-hijaiyyah/alif.png
     - assets/pengenalan-hijaiyyah/ba.png
     - assets/pengenalan-hijaiyyah/ta.png
@@ -225,11 +227,23 @@ flutter:
     - audio/pengenalan-hewan/cow.mp3
     - audio/pengenalan-hewan/crab.mp3
     - audio/pengenalan-hewan/dog.mp3
-    - audio/pengenalan-hewan/dolphin.mp3
     - audio/pengenalan-hewan/elephant.mp3
     - audio/pengenalan-hewan/horse.mp3
     - audio/pengenalan-hewan/lion.mp3
     - audio/pengenalan-hewan/pig.mp3
+    - audio/pengenalan-hewan/domba.mp3
+    - audio/pengenalan-hewan/ikan-hiu.mp3
+    - audio/pengenalan-hewan/ikan-pari.mp3
+    - audio/pengenalan-hewan/ikan-paus.mp3
+    - audio/pengenalan-hewan/kambing.mp3
+    - audio/pengenalan-hewan/keledai.mp3
+    - audio/pengenalan-hewan/kelinci.mp3
+    - audio/pengenalan-hewan/kerbau.mp3
+    - audio/pengenalan-hewan/kucing.mp3
+    - audio/pengenalan-hewan/lumba-lumba.mp3
+    - audio/pengenalan-hewan/merpati.mp3
+    - audio/pengenalan-hewan/tikus.mp3
+    - audio/pengenalan-hewan/ular.mp3
     - audio/pengenalan-hijaiyyah/alif.mp3
     - audio/pengenalan-hijaiyyah/ba.mp3
     - audio/pengenalan-hijaiyyah/ta.mp3

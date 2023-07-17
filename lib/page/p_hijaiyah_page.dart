@@ -1,8 +1,6 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:learntoread/models/p_hijaiyah_models.dart';
-import 'package:wakelock/wakelock.dart';
 
 import '../utils/constants.dart';
 
@@ -91,7 +89,7 @@ class _PHijaiyahPageState extends State<PHijaiyahPage> {
     try {
       assetsAudioPlayer.open(Audio(assetAudio));
     } catch (e) {
-
+      print(e);
     }
   }
 

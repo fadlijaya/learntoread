@@ -1,10 +1,7 @@
 import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:wakelock/wakelock.dart';
 
 import '../models/p_hewan_models.dart';
-import '../models/p_warna_models.dart';
 import '../utils/constants.dart';
 
 class PHewanPage extends StatefulWidget {
@@ -28,11 +25,23 @@ class _PHewanPageState extends State<PHewanPage> {
     'assets/pengenalan-hewan/cow.png',
     'assets/pengenalan-hewan/crab.png',
     'assets/pengenalan-hewan/dog.png',
-    'assets/pengenalan-hewan/dolphin.png',
     'assets/pengenalan-hewan/elephant.png',
     'assets/pengenalan-hewan/horse.png',
     'assets/pengenalan-hewan/lion.png',
-    'assets/pengenalan-hewan/pig.png'
+    'assets/pengenalan-hewan/pig.png',
+    'assets/pengenalan-hewan/domba.png',
+    'assets/pengenalan-hewan/ikan-hiu.png',
+    'assets/pengenalan-hewan/ikan-pari.png',
+    'assets/pengenalan-hewan/ikan-paus.png',
+    'assets/pengenalan-hewan/kambing.png',
+    'assets/pengenalan-hewan/keledai.png',
+    'assets/pengenalan-hewan/kelinci.png',
+    'assets/pengenalan-hewan/kerbau.png',
+    'assets/pengenalan-hewan/kucing.png',
+    'assets/pengenalan-hewan/lumba-lumba.png',
+    'assets/pengenalan-hewan/merpati.png',
+    'assets/pengenalan-hewan/tikus.png',
+    'assets/pengenalan-hewan/ular.png',
   ];
 
    static List<String> assetAudio = [
@@ -41,18 +50,30 @@ class _PHewanPageState extends State<PHewanPage> {
     "audio/pengenalan-hewan/cow.mp3",
     "audio/pengenalan-hewan/crab.mp3",
     "audio/pengenalan-hewan/dog.mp3",
-    "audio/pengenalan-hewan/dolphin.mp3",
     "audio/pengenalan-hewan/elephant.mp3",
     "audio/pengenalan-hewan/horse.mp3",
     "audio/pengenalan-hewan/lion.mp3",
-    "audio/pengenalan-hewan/pig.mp3"
+    "audio/pengenalan-hewan/pig.mp3",
+    "audio/pengenalan-hewan/domba.mp3",
+    "audio/pengenalan-hewan/ikan-hiu.mp3",
+    "audio/pengenalan-hewan/ikan-pari.mp3",
+    "audio/pengenalan-hewan/ikan-paus.mp3",
+    "audio/pengenalan-hewan/kambing.mp3",
+    "audio/pengenalan-hewan/keledai.mp3",
+    "audio/pengenalan-hewan/kelinci.mp3",
+    "audio/pengenalan-hewan/kerbau.mp3",
+    "audio/pengenalan-hewan/kucing.mp3",
+    "audio/pengenalan-hewan/lumba-lumba.mp3",
+    "audio/pengenalan-hewan/merpati.mp3",
+    "audio/pengenalan-hewan/tikus.mp3",
+    "audio/pengenalan-hewan/ular.mp3",
   ];
 
    audio(String assetAudio) {
     try {
       assetsAudioPlayer.open(Audio(assetAudio));
     } catch (e) {
-
+      print(e);
     }
   }
 
