@@ -1,8 +1,8 @@
 name: learntoread
-description: A new Flutter project.
+description: Aplikasi Edu Kids
 publish_to: 'none'
 
-version: 1.0.2+3
+version: 1.0.2+4
 
 environment:
   sdk: '>=2.18.4 <3.0.0'
@@ -16,6 +16,7 @@ dependencies:
   fluttertoast: ^8.1.1
   flutter_rating_bar: ^4.0.1
   assets_audio_player: ^3.0.5
+  splash_view: ^2.0.1
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
@@ -51,6 +52,7 @@ flutter:
         - asset: fonts/KidGames.ttf
 
   assets:
+    - assets/launcher/launcher_icons.png
     - file/tentang.txt
     - audio/backsound.mp3
     - audio/congrats.mp3

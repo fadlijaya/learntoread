@@ -23,6 +23,8 @@ const String warna9 = "1";
 const String warna10 = "1";
 const String warna11 = "1";
 
+const assetLogoAppSplashScreen = "assets/launcher/launcher_icons.png";
+
 
 
 
